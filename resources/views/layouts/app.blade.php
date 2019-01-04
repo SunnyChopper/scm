@@ -16,7 +16,7 @@
 		<!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}">
 		<link rel="stylesheet" href="{{ URL::asset('vendors/linericon/style.css') }}">
-		<link rel="stylesheet" href="{{ URL::asset('css/font-awesome.min.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 		<link rel="stylesheet" href="{{ URL::asset('vendors/owl-carousel/owl.carousel.min.css') }}">
 		<link rel="stylesheet" href="{{ URL::asset('css/magnific-popup.css') }}">
 		<link rel="stylesheet" href="{{ URL::asset('vendors/nice-select/css/nice-select.css') }}">
@@ -24,7 +24,9 @@
 		<link rel="stylesheet" href="{{ URL::asset('vendors/flaticon/flaticon.css') }}">
 
 		<!-- Main css -->
-		<link rel="stylesheet" href="{{ URL::asset('css/style.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/layouts.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
 	</head>
 	<body>
 		@include('layouts.navbar')
