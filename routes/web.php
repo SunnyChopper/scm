@@ -11,7 +11,13 @@
 |
 */
 
+// Public pages
 Route::get('/', 'PagesController@index');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/pricing', 'PagesController@pricing');
 Route::get('/services/web-dev', 'PagesController@web_dev_service');
+
+// Client dashboard
+Route::get('/clients', 'ClientsController@index');
+Route::post('/clients/login', 'ClientsController@login');
+Route::get('/clients/dashboard', 'ClientsController@dashboard');
