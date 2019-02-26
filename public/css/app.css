@@ -6,6 +6,23 @@ html, body {
 	color: hsla(230, 8%, 15%,1);
 }
 
+p {
+	font-weight: 100;
+}
+
+a {
+	color: #8252fa;
+}
+
+a:hover {
+	color: #3105a1;
+}
+
+.header_area .navbar {
+	-webkit-box-shadow: 0px 2px 40px -2px rgba(0,0,0,0.25); 
+	box-shadow: 0px 2px 40px -2px rgba(0,0,0,0.25);
+}
+
 .footer_area {
 	padding-top: 60px;
 	padding-bottom: 60px;
@@ -25,6 +42,14 @@ html, body {
 .home_banner_area .banner_inner .banner_content .primary_btn {
 	background: #fff;
     color: #222222;
+}
+
+.primary_btn {
+    background-image: linear-gradient(transparent, transparent), radial-gradient(circle at top left, #8252fa, #eca2f1);
+}
+
+.primary_btn:hover {
+	background-image: linear-gradient(to right, transparent 0%, transparent 100%), radial-gradient(circle at top left, #8252fa, #eca2f1);
 }
 
 @media only screen and (max-width: 575px) {

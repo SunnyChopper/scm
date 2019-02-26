@@ -12,3 +12,6 @@
 */
 
 Route::get('/', 'PagesController@index');
+Route::get('/contact', 'PagesController@contact');
+Route::get('/pricing', 'PagesController@pricing');
+Route::get('/services/web-dev', 'PagesController@web_dev_service');
