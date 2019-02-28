@@ -9,6 +9,7 @@ class TasksController extends Controller
 {
     public function create(Request $data) {
     	$task = new Task;
+    	$task->client_id = $data->client_id;
     	$task->title = $data->title;
     	$task->description = $data->description;
     	$task->due_date = $data->due_date;
