@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use App\Log;
 
 class LogsController extends Controller
@@ -33,5 +34,20 @@ class LogsController extends Controller
     	$log = Log::find($data->log_id);
     	$log->is_active = 0;
     	$log->save();
+    }
+
+    public function view_all() {
+        $client_id = $this->get_client_id();
+        $logs = Log::where('client_id', $client_id)->get();
+        $page_title = "Logs";
+        return view('clients.logs.view')->with('page_title', $page_title)->with('logs', $logs);
+    }
+
+    private function get_client_id() {
+        if (Session::has('client_id')) {
+            return Session::get('client_id');
+        } else {
+            return 0;
+        }
     }
 }
