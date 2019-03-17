@@ -10,7 +10,7 @@ use App\Client;
 class ClientsController extends Controller
 {
     public function index() {
-    	$page_title = "Clients Login";
+    	$page_title = "Client Login";
 
     	return view('clients.login')->with('page_title', $page_title);
     }
@@ -85,6 +85,16 @@ class ClientsController extends Controller
         $client = Client::where('id', $data->client_id)->get();
         $client->is_active = 0;
         $client->save();
+    }
+
+    public function set_password($client_id) {
+        $client = Client::find($client_id);
+        if ($client->is_active != 2) {
+            return redirect(url('/clients/login'));
+        }
+        $page_title = "Set Initial Password";
+
+        return view('clients.set-password')->with('page_title', $page_title);
     }
 
     /* Private functions */

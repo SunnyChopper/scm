@@ -18,8 +18,8 @@ Route::get('/pricing', 'PagesController@pricing');
 Route::get('/services/web-dev', 'PagesController@web_dev_service');
 
 // Client dashboard
-Route::get('/clients', 'ClientsController@index');
-Route::post('/clients/login', 'ClientsController@login');
+Route::get('/clients/login', 'ClientsController@index');
+Route::get('/clients/password/initial/{client_id}', 'ClientsController@set_password');
 Route::get('/clients/dashboard', 'ClientsController@dashboard');
 Route::get('/clients/tasks', 'TasksController@view_all');
 Route::get('/clients/tasks/request', 'TasksController@request');
@@ -30,3 +30,7 @@ Route::get('/clients/revenue', 'RevenuesController@view_all');
 // Admin dashboard
 Route::get('/admin/login', 'AdminController@login_screen');
 Route::get('/admin/dashboard', 'AdminController@dashboard');
+Route::get('/admin/clients', 'AdminController@view_clients');
+Route::get('/admin/clients/new', 'AdminController@new_client');
+Route::post('/admin/clients/create', 'AdminController@create_client');
+Route::post('/admin/clients/update', 'AdminController@update_client');
