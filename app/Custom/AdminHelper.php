@@ -47,7 +47,7 @@ class AdminHelper {
 		if (Admin::where('username', strtolower($data->username))->count() > 0) {
 			$admin = Admin::where('username', strtolower($data->username))->first();
 			if (Hash::check($data->password, $admin->password)) {
-				$this->saveLogin();
+				self::saveLogin();
 				return true;
 			} else {
 				return false;
@@ -61,13 +61,13 @@ class AdminHelper {
 		$this->saveLogout();
 	}
 
-	private function saveLogin($id) {
+	private static function saveLogin($id) {
 		Session::put('admin_logged_in', true);
 		Session::put('admin_id', $id);
 		Session::save();
 	}
 
-	private function saveLogout() {
+	private static function saveLogout() {
 		Session::forget('admin_logged_in');
 		Session::forget('admin_id');
 		Session::save();
