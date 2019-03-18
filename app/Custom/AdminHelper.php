@@ -47,7 +47,7 @@ class AdminHelper {
 		if (Admin::where('username', strtolower($data->username))->count() > 0) {
 			$admin = Admin::where('username', strtolower($data->username))->first();
 			if (Hash::check($data->password, $admin->password)) {
-				self::saveLogin();
+				self::saveLogin($admin->id);
 				return true;
 			} else {
 				return false;
