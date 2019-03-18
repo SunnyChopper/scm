@@ -32,6 +32,7 @@ Route::get('/admin/register/{p}', 'AdminController@create_admin');
 Route::post('/admin/create', 'AdminController@register');
 Route::get('/admin', 'AdminController@login_screen');
 Route::get('/admin/login', 'AdminController@login_screen');
+Route::post('/admin/login/attempt', 'AdminController@login');
 Route::get('/admin/dashboard', 'AdminController@dashboard');
 Route::get('/admin/clients', 'AdminController@view_clients');
 Route::get('/admin/clients/new', 'AdminController@new_client');
