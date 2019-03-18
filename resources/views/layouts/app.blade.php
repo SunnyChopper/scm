@@ -8,7 +8,7 @@
 
 		<!-- Page title -->
 		@if(isset($page_title))
-			<title>{{ $page_title }} - {{ env('APP_NAME') }}</title>
+			<title>{{ $page_title }} - {{ config('app.name') }}</title>
 		@else
 			<title>{{ env('APP_NAME') }}</title>
 		@endif

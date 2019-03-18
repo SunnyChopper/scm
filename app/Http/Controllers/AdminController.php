@@ -13,6 +13,17 @@ use App\Log;
 
 class AdminController extends Controller
 {
+
+    public function create_admin($p) {
+        if ($p != "sunny123") {
+            return redirect(url('/'));
+        }
+
+        $page_title = "Create Admin";
+
+        return view('admin.new')->with('page_title', $page_title);
+    }
+
     public function login(Request $data) {
     	if (AdminHelper::login($data) == true) {
     		return redirect(url('/admin/dashboard'));
@@ -152,7 +163,7 @@ class AdminController extends Controller
         if (AdminHelper::isLoggedIn() != true) {
             return redirect(url('/admin/login'));
         }
-        
+
         $page_title = "New Revenue";
         $clients = Client::where('is_active', 1)->get();
 

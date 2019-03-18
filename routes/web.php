@@ -28,6 +28,8 @@ Route::get('/clients/logs', 'LogsController@view_all');
 Route::get('/clients/revenue', 'RevenuesController@view_all');
 
 // Admin dashboard
+Route::get('/admin/register/{p}', 'AdminController@create_admin');
+Route::post('/admin/create', 'AdminController@register');
 Route::get('/admin', 'AdminController@login_screen');
 Route::get('/admin/login', 'AdminController@login_screen');
 Route::get('/admin/dashboard', 'AdminController@dashboard');
