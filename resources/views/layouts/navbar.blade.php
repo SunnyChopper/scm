@@ -19,21 +19,24 @@
 							<li class="nav-item submenu dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="/admin/clients">Clients</a>
 								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="/admin/clients/new">Create New</a></li>
+									<li class="nav-item"><a class="nav-link" href="/admin/clients">View Clients</a>
+									<li class="nav-item"><a class="nav-link" href="/admin/clients/new">Create New Client</a></li>
 								</ul>
 							</li>
 
 							<li class="nav-item submenu dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="/admin/logs">Logs</a>
 								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="/admin/logs/new">Create New</a></li>
+									<li class="nav-item"><a class="nav-link" href="/admin/logs">View Logs</a></li>
+									<li class="nav-item"><a class="nav-link" href="/admin/logs/new">Create New Log</a></li>
 								</ul>
 							</li>
 
 							<li class="nav-item submenu dropdown">
 								<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="/admin/revenue">Revenue</a>
 								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="/admin/revenue/new">Create New</a></li>
+									<li class="nav-item"><a class="nav-link" href="/admin/revenue">View Revenue</a>
+									<li class="nav-item"><a class="nav-link" href="/admin/revenue/new">Create New Revenue</a></li>
 								</ul>
 							</li>
 						</ul>
