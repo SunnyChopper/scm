@@ -41,9 +41,9 @@ class ClientsController extends Controller
     public function dashboard() {
     	$page_title = "Client Dashboard";
 
-    	// if ($this->is_client_logged_in() == false) {
-     //        return redirect(url('/clients'));
-     //    }
+    	if ($this->is_client_logged_in() == false) {
+            return redirect(url('/clients'));
+        }
 
     	return view('clients.dashboard')->with('page_title', $page_title);
     }

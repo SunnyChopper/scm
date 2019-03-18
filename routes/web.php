@@ -28,9 +28,16 @@ Route::get('/clients/logs', 'LogsController@view_all');
 Route::get('/clients/revenue', 'RevenuesController@view_all');
 
 // Admin dashboard
+Route::get('/admin', 'AdminController@login_screen');
 Route::get('/admin/login', 'AdminController@login_screen');
 Route::get('/admin/dashboard', 'AdminController@dashboard');
 Route::get('/admin/clients', 'AdminController@view_clients');
 Route::get('/admin/clients/new', 'AdminController@new_client');
 Route::post('/admin/clients/create', 'AdminController@create_client');
+Route::get('/admin/clients/edit/{client_id}', 'AdminController@edit_client');
 Route::post('/admin/clients/update', 'AdminController@update_client');
+Route::get('/admin/logs', 'AdminController@view_logs');
+Route::get('/admin/logs/new', 'AdminController@new_log');
+Route::post('/admin/logs/post', 'LogsController@create');
+Route::get('/admin/revenue', 'AdminController@view_revenue');
+Route::get('/admin/revenue/new', 'AdminController@new_revenue');

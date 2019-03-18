@@ -14,6 +14,8 @@ class RevenuesController extends Controller
     	$revenue->report_date = $data->report_date;
     	$revenue->amount = $data->amount;
     	$revenue->save();
+
+        return redirect(url($data->redirect_url));
     }
 
     public function read($revenue_id) {

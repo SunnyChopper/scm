@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Custom\AdminHelper;
+use App\Custom\RevenueHelper;
 
+use App\Revenue;
 use App\Client;
+use App\Log;
 
 class AdminController extends Controller
 {
@@ -37,12 +40,23 @@ class AdminController extends Controller
     		return redirect(url('/admin/login'));
     	}
 
+        // Get clients
+        $clients = Client::where('is_active', 1)->get();
+
+        // Get revenue objects
+        $revenue = RevenueHelper::getRevenueForCurrentMonth();
+        $revenue_total = RevenueHelper::getTotalForCurrentMonth();
+
     	$page_title = "Admin Dashboard";
 
-    	return view('admin.dashboard')->with('page_title', $page_title);
+    	return view('admin.dashboard')->with('page_title', $page_title)->with('clients', $clients)->with('revenue', $revenue)->with('revenue_total', $revenue_total);
     }
 
     public function view_clients() {
+        if (AdminHelper::isLoggedIn() != true) {
+            return redirect(url('/admin/login'));
+        }
+
         $clients = Client::where('is_active', '>', 0)->get();
         $page_title = "Clients";
 
@@ -50,12 +64,20 @@ class AdminController extends Controller
     }
 
     public function new_client() {
+        if (AdminHelper::isLoggedIn() != true) {
+            return redirect(url('/admin/login'));
+        }
+
         $page_title = "Create New Client";
 
         return view('admin.clients.new')->with('page_title', $page_title);
     }
 
     public function create_client(Request $data) {
+        if (AdminHelper::isLoggedIn() != true) {
+            return redirect(url('/admin/login'));
+        }
+
         $client = new Client;
         $client->first_name = $data->first_name;
         $client->last_name = $data->last_name;
@@ -68,6 +90,10 @@ class AdminController extends Controller
     }
 
     public function edit_client($client_id) {
+        if (AdminHelper::isLoggedIn() != true) {
+            return redirect(url('/admin/login'));
+        }
+
         $client = Client::find($client_id);
         $page_title = "Edit " . $client->company_name;
 
@@ -75,6 +101,10 @@ class AdminController extends Controller
     }
 
     public function update_client(Request $data) {
+        if (AdminHelper::isLoggedIn() != true) {
+            return redirect(url('/admin/login'));
+        }
+
         $client = Client::find($data->client_id);
         $client->first_name = $data->first_name;
         $client->last_name = $data->last_name;
@@ -83,5 +113,49 @@ class AdminController extends Controller
         $client->save();
 
         return redirect(url('/admin/clients'));
+    }
+
+    public function view_logs() {
+        if (AdminHelper::isLoggedIn() != true) {
+            return redirect(url('/admin/login'));
+        }
+
+        $logs = Log::where('is_active', 1)->orderBy('created_at', 'DESC')->paginate(50);
+        $page_title = "Logs";
+
+        return view('admin.logs.view')->with('logs', $logs)->with('page_title', $page_title);
+    }
+
+    public function new_log() {
+        if (AdminHelper::isLoggedIn() != true) {
+            return redirect(url('/admin/login'));
+        }
+
+        $page_title = "New Log Event";
+        $clients = Client::where('is_active', 1)->get();
+
+        return view('admin.logs.new')->with('page_title', $page_title)->with('clients', $clients);
+    }
+
+    public function view_revenue() {
+        if (AdminHelper::isLoggedIn() != true) {
+            return redirect(url('/admin/login'));
+        }
+
+        $page_title = "View Revenue";
+        $revenues = Revenue::where('is_active', 1)->orderBy('created_at', 'DESC')->paginate(50);
+
+        return view('admin.revenue.view')->with('revenues', $revenues)->with('page_title', $page_title);
+    }
+
+    public function new_revenue() {
+        if (AdminHelper::isLoggedIn() != true) {
+            return redirect(url('/admin/login'));
+        }
+        
+        $page_title = "New Revenue";
+        $clients = Client::where('is_active', 1)->get();
+
+        return view('admin.revenue.new')->with('page_title', $page_title)->with('clients', $clients);
     }
 }

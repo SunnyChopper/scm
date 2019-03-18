@@ -14,6 +14,8 @@ class LogsController extends Controller
     	$log->title = $data->title;
     	$log->description = $data->description;
     	$log->save();
+
+        return redirect(url($data->redirect_url));
     }
 
     public function read($log_id) {
