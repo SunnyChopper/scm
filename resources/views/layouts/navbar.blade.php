@@ -11,7 +11,7 @@
 					<span class="icon-bar"></span>
 				</button>
 				<!-- Collect the nav links, forms, and other content for toggling -->
-				@if(AdminHelper::isLoggedIn())
+				@if(App\Custom\AdminHelper::isLoggedIn())
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav justify-content-center">
 							<li class="nav-item"><a class="nav-link" href="/admin/dashboard">Dashboard</a></li>
@@ -38,7 +38,7 @@
 							</li>
 						</ul>
 					</div>
-				@elseif(ClientHelper::isLoggedIn())
+				@elseif(App\Custom\ClientHelper::isLoggedIn())
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_na justify-content-center">
 							<li class="nav-item"><a class="nav-link" href="/clients/dashboard">Dashboard</a></li>
