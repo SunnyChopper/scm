@@ -32,12 +32,19 @@
 
 						<div class="row">
 							<div class="col-12">
+								<label>Email:</label>
+								<input type="email" name="email" class="form-control" required>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-12">
 								<label>Password:</label>
 								<input type="password" name="password" class="form-control" required>
 							</div>
 						</div>
 
-						<div class="row">
+						<div class="row mt-16">
 							<div class="col-12">
 								<input type="submit" value="Create Admin" class="primary_btn pr-4 pl-4 centered">
 							</div>
