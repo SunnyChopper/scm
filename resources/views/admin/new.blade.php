@@ -3,9 +3,9 @@
 @section('content')
 	<div class="container pt-64 pb-64">
 		<div class="row justify-content-center">
-			<form action="/admin/create" method="POST">
-				{{ csrf_field() }}
-				<div class="col-lg-7 col-md-8 col-sm-10 col-12">
+			<div class="col-lg-7 col-md-8 col-sm-10 col-12">
+				<form action="/admin/create" method="POST">
+					{{ csrf_field() }}
 					<div class="gray-box">
 						<div class="row">
 							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
@@ -22,7 +22,7 @@
 								</div>
 							</div>
 						</div>
-						
+					
 						<div class="row">
 							<div class="col-12">
 								<label>Username:</label>
@@ -43,8 +43,8 @@
 							</div>
 						</div>
 					</div>
-				</div>
-			</form>
+				</form>
+			</div>
 		</div>
 	</div>
 @endsection
