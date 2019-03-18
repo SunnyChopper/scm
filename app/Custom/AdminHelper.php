@@ -58,7 +58,7 @@ class AdminHelper {
 	}
 
 	public static function logout() {
-		$this->saveLogout();
+		self::saveLogout();
 	}
 
 	private static function saveLogin($id) {

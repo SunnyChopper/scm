@@ -39,6 +39,8 @@
 									<li class="nav-item"><a class="nav-link" href="/admin/revenue/new">Create New Revenue</a></li>
 								</ul>
 							</li>
+
+							<li class="nav-item"><a class="nav-link" href="/admin/logout">Logout</a></li>
 						</ul>
 					</div>
 				@elseif(App\Custom\ClientHelper::isLoggedIn())

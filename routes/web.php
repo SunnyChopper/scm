@@ -44,3 +44,4 @@ Route::get('/admin/logs/new', 'AdminController@new_log');
 Route::post('/admin/logs/post', 'LogsController@create');
 Route::get('/admin/revenue', 'AdminController@view_revenue');
 Route::get('/admin/revenue/new', 'AdminController@new_revenue');
+Route::get('/admin/logout', 'AdminController@logout');

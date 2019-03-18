@@ -40,6 +40,11 @@ class AdminController extends Controller
     	}
     }
 
+    public function logout() {
+        AdminHelper::logout();
+        return redirect(url('/admin/login'));
+    }
+
     public function login_screen() {
     	$page_title = "Admin Login";
 
