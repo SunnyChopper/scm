@@ -5,7 +5,7 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-6 col-md-8 col-sm-10 col-12">
 				<div class="gray-box">
-					<form action="/admin/login" method="POST">
+					<form action="/admin/login/attempt" method="POST">
 						{{ csrf_field() }}
 						<div class="form-group">
 							<label>Username:</label>
