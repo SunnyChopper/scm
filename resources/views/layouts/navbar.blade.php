@@ -15,7 +15,7 @@
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
 						<ul class="nav navbar-nav menu_nav justify-content-center">
 							<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-							<li class="nav-item"><a class="nav-link" href="">Tips & Advice</a></li>
+							{{-- <li class="nav-item"><a class="nav-link" href="">Tips & Advice</a></li> --}}
 							<li class="nav-item"><a class="nav-link" href="/pricing">Pricing</a></li>
 							<li class="nav-item submenu dropdown">
 								<a href="/services" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
