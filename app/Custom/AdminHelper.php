@@ -45,7 +45,7 @@ class AdminHelper {
 
 	public static function login(Request $data) {
 		if (Admin::where('username', strtolower($data->username))->count() > 0) {
-			$admin = Admin::where('username', strtolower($data->username))->get();
+			$admin = Admin::where('username', strtolower($data->username))->first();
 			if (Hash::check($data->password, $admin->password)) {
 				$this->saveLogin();
 				return true;
