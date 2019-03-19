@@ -159,7 +159,7 @@ class AdminController extends Controller
         }
 
         $page_title = "New Log Event";
-        $clients = Client::where('is_active', 1)->get();
+        $clients = Client::where('is_active', '>', 0)->get();
 
         return view('admin.logs.new')->with('page_title', $page_title)->with('clients', $clients);
     }
