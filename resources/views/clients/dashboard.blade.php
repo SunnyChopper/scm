@@ -26,11 +26,11 @@
 							</li>
 						@endforeach
 					</ul>
-					<a class="primary_btn centered pl-4 pr-4 mt-16">Request Task</a>
+					<a class="primary_btn centered pl-4 pr-4 mt-16" href="/clients/tasks/request">Request Task</a>
 				@else
 					<hr />
 					<p class="text-center">There are no tasks currently open. Click below to request a task.</p>
-					<a class="primary_btn centered pl-4 pr-4 mt-16">Request Task</a>
+					<a class="primary_btn centered pl-4 pr-4 mt-16" href="/clients/tasks/request">Request Task</a>
 				@endif
 			</div>
 
