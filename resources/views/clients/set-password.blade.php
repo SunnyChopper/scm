@@ -4,7 +4,8 @@
 	<div class="container pt-64 pb-64">
 		<div class="row justify-content-center">
 			<div class="col-lg-6 col-md-7 col-sm-10 col-12">
-				<form action="/clients/passwords/set" method="POST">
+				<form action="/clients/password/set" method="POST">
+					{{ csrf_field() }}
 					<input type="hidden" name="client_id" value="{{ $client->id }}">
 					<div class="gray-box">
 						<div class="row">

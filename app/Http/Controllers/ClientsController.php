@@ -16,8 +16,8 @@ class ClientsController extends Controller
     }
 
     public function login(Request $data) {
-    	if (Client::where('email', strtowlower($email))->count() > 0) {
-            $client = Client::where('email', strtolower($email))->get();
+    	if (Client::where('email', strtolower($data->email))->count() > 0) {
+            $client = Client::where('email', strtolower($data->email))->get();
             if (Hash::check($data->password, $client->password)) {
                 Session::put('client_id', $client->id);
                 Session::put('client_logged_in', true);
@@ -95,6 +95,14 @@ class ClientsController extends Controller
         $page_title = "Set Initial Password";
 
         return view('clients.set-password')->with('page_title', $page_title)->with('client', $client);
+    }
+
+    public function create_password(Request $data) {
+        $client = Client::find($data->client_id);
+        $client->password = Hash::make($data->password);
+        $client->save();
+
+        return redirect(url('/clients/login'));
     }
 
     /* Private functions */
