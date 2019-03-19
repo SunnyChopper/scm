@@ -203,4 +203,12 @@ class AdminController extends Controller
 
         return view('admin.tasks.new')->with('page_title', $page_title)->with('clients', $clients);
     }
+
+    public function edit_task($task_id) {
+        $page_title = "Edit Task";
+
+        $task = Task::find($task_id);
+
+        return view('admin.tasks.edit')->with('page_title', $page_title)->with('task', $task);
+    }
 }

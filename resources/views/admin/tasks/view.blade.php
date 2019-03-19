@@ -25,7 +25,7 @@
 									<td>{{ $task->due_date }}</td>
 
 									@if($task->status == 0)
-										<td><span class="badge badge-danger">Waiting Approval</span></td>
+										<td><span class="badge badge-warning">Waiting Approval</span></td>
 									@elseif($task->status == 1)
 										<td><span class="badge badge-primary">Approved</span></td>
 									@elseif($task->status == 2)

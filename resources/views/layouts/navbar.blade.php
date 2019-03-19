@@ -40,6 +40,14 @@
 								</ul>
 							</li>
 
+							<li class="nav-item submenu dropdown">
+								<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="/admin/tasks">Tasks</a>
+								<ul class="dropdown-menu">
+									<li class="nav-item"><a class="nav-link" href="/admin/tasks">View Tasks</a></li>
+									<li class="nav-item"><a class="nav-link" href="/admin/tasks/new">Create Task</a></li>
+								</ul>
+							</li>
+
 							<li class="nav-item"><a class="nav-link" href="/admin/logout">Logout</a></li>
 						</ul>
 					</div>

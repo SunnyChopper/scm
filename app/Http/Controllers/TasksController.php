@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use App\Task;
+use App\Client;
 
 class TasksController extends Controller
 {
@@ -13,10 +14,13 @@ class TasksController extends Controller
     	$task->client_id = $data->client_id;
     	$task->title = $data->title;
     	$task->description = $data->description;
-    	$task->due_date = $data->due_date;
+        $task->due_date = $data->due_date;
+        $task->status = $data->status;
     	$task->save();
 
-        // TODO: Send new task email to client
+        // Get client data and send update email
+        $client = Client::find($data->client_id);
+        Mail::to($client->email)->send(new NewTask($client->first_name, $data->title, $data->description, $data->status, $data->due_date));
 
         return redirect(url($data->redirect_url));
     }
@@ -35,7 +39,9 @@ class TasksController extends Controller
     	$task->status = $data->status;
     	$task->save();
 
-        // TODO: Send updated task email to client
+        // Get client data and send update email
+        $client = Client::find($task->client_id);
+        Mail::to($client->email)->send(new NewTask($client->first_name, $data->title, $data->description, $data->status, $data->due_date));
 
         return redirect(url($data->redirect_url));
     }
