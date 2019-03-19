@@ -4,7 +4,7 @@
 	<div class="container pt-64 pb-64">
 		<div class="row justify-content-center">
 			<div class="col-lg-5 col-md-6 col-sm-8 col-12">
-				<form action="/clients/login" method="POST">
+				<form action="/clients/login/attempt" method="POST">
 					{{ csrf_field() }}
 					<div class="gray-box">
 						<div class="form-group">

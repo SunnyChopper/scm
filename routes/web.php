@@ -20,6 +20,7 @@ Route::get('/test', 'AdminController@test');
 
 // Client dashboard
 Route::get('/clients/login', 'ClientsController@index');
+Route::post('/clients/login/attempt', 'ClientsController@login');
 Route::get('/clients/password/initial/{client_id}', 'ClientsController@set_password');
 Route::post('/clients/password/set', 'ClientsController@create_password');
 Route::get('/clients/dashboard', 'ClientsController@dashboard');

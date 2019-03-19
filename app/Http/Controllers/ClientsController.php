@@ -17,7 +17,7 @@ class ClientsController extends Controller
 
     public function login(Request $data) {
     	if (Client::where('email', strtolower($data->email))->count() > 0) {
-            $client = Client::where('email', strtolower($data->email))->get();
+            $client = Client::where('email', strtolower($data->email))->first();
             if (Hash::check($data->password, $client->password)) {
                 Session::put('client_id', $client->id);
                 Session::put('client_logged_in', true);
