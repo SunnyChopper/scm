@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
+
 use App\Client;
+use App\Log;
+use App\Task;
 
 class ClientsController extends Controller
 {
@@ -45,7 +48,10 @@ class ClientsController extends Controller
             return redirect(url('/clients'));
         }
 
-    	return view('clients.dashboard')->with('page_title', $page_title);
+        $logs = Log::where('client_id', $this->get_client_id())->get();
+        $tasks = Task::where('client_id', $this->get_client_id())->get();
+
+    	return view('clients.dashboard')->with('page_title', $page_title)->with('logs', $logs)->with('tasks', $tasks);
     }
 
     public function register_client(Request $data) {
@@ -115,6 +121,14 @@ class ClientsController extends Controller
             }
         } else {
             return false;
+        }
+    }
+
+    private function get_client_id() {
+        if (Session::has('client_id')) {
+            return Session::get('client_id');
+        } else {
+            return 0;
         }
     }
 
