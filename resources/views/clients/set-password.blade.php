@@ -25,28 +25,34 @@
 
 						<div class="row">
 							<div class="col-12">
-								<label>Company Name:</label>
-								<input type="text" value="{{ $client->company_name }}" class="form-control disabled" disabled="true">
+								<div class="form-group">
+									<label>Company Name:</label>
+									<input type="text" value="{{ $client->company_name }}" class="form-control disabled" disabled="true">
+								</div>
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="col-12">
-								<label>Password:</label>
-								<input type="password" name="password" class="form-control" required>
+								<div class="form-group">
+									<label>Password:</label>
+									<input type="password" name="password" class="form-control" required>
+								</div>
 							</div>
 						</div>
 
 						<div class="row">
 							<div class="col-12">
-								<label>Password Again:</label>
-								<input type="password" name="confirm_password" class="form-control" required>
+								<div class="form-group">
+									<label>Password Again:</label>
+									<input type="password" name="confirm_password" class="form-control" required>
+								</div>
 							</div>
 						</div>
 
 						<p class="text-center red" id="error_msg" style="display: none;">Passwords do not match.</p>
 
-						<div class="row">
+						<div class="row mt-16">
 							<div class="col-12">
 								<input type="submit" id="submit_button" class="btn btn-primary centered" value="Set Password">
 							</div>
