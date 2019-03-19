@@ -5,10 +5,11 @@
 		<div class="row justify-content-center">
 			<div class="col-lg-5 col-md-6 col-sm-8 col-12">
 				<form action="/clients/login" method="POST">
+					{{ csrf_field() }}
 					<div class="gray-box">
 						<div class="form-group">
-							<h5>Username:</h5>
-							<input type="text" class="form-control" name="username" required>
+							<h5>Email:</h5>
+							<input type="email" class="form-control" name="email" required>
 						</div>
 
 						<div class="form-group">

@@ -8,8 +8,8 @@
 					<form action="/admin/login/attempt" method="POST">
 						{{ csrf_field() }}
 						<div class="form-group">
-							<label>Email:</label>
-							<input type="email" class="form-control" name="email" required>
+							<label>Username:</label>
+							<input type="text" class="form-control" name="username" required>
 						</div>
 
 						<div class="form-group">
