@@ -11,7 +11,7 @@
 						<div class="gray-box">
 							<div class="form-group">
 								<label>Clients:</label>
-								<select name="client_id">
+								<select form="create_log_form" name="client_id" class="form-control">
 									@foreach($clients as $client)
 										<option value="{{ $client->id }}">{{ $client->company_name }}</option>
 									@endforeach
