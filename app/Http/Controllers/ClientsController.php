@@ -94,7 +94,7 @@ class ClientsController extends Controller
         }
         $page_title = "Set Initial Password";
 
-        return view('clients.set-password')->with('page_title', $page_title);
+        return view('clients.set-password')->with('page_title', $page_title)->with('client', $client);
     }
 
     /* Private functions */
