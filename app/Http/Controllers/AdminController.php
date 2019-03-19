@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Mail;
 
 use App\Custom\AdminHelper;
 use App\Custom\RevenueHelper;
+use App\Custom\ClientHelper;
 
 use App\Mail\NewClient;
 
