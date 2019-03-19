@@ -29,7 +29,7 @@
 							<tbody>
 								@foreach($logs as $log)
 									<tr>
-										<td>{{ ClientHelper::getCompanyName($log->client_id) }}</td>
+										<td>{{ App\Custom\ClientHelper::getCompanyName($log->client_id) }}</td>
 										<td>{{ $log->title }}</td>
 										<td>{{ $log->description }}</td>
 										<td><button id="{{ $log->id }}" class="genric-btn danger rounded">Delete</button></td>
