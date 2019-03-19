@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 use App\Custom\AdminHelper;
 use App\Custom\RevenueHelper;
+
+use App\Mail\NewClient;
 
 use App\Revenue;
 use App\Client;
@@ -13,6 +16,10 @@ use App\Log;
 
 class AdminController extends Controller
 {
+
+    public function test() {
+        Mail::to("ishy.singh@gmail.com")->send(new NewClient("Sunny", 1));
+    }
 
     public function create_admin($p) {
         if ($p != "sunny123") {
@@ -94,6 +101,7 @@ class AdminController extends Controller
             return redirect(url('/admin/login'));
         }
 
+        // Create the client
         $client = new Client;
         $client->first_name = $data->first_name;
         $client->last_name = $data->last_name;
@@ -101,6 +109,9 @@ class AdminController extends Controller
         $client->company_name = $data->company_name;
         $client->is_active = 2;
         $client->save();
+
+        // Send the email
+        Mail::to($client->email)->send(new NewClient($data->first_name, $client->id));
 
         return redirect(url('/admin/clients'));
     }

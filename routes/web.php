@@ -16,6 +16,7 @@ Route::get('/', 'PagesController@index');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/pricing', 'PagesController@pricing');
 Route::get('/services/web-dev', 'PagesController@web_dev_service');
+Route::get('/test', 'AdminController@test');
 
 // Client dashboard
 Route::get('/clients/login', 'ClientsController@index');
@@ -41,7 +42,7 @@ Route::get('/admin/clients/edit/{client_id}', 'AdminController@edit_client');
 Route::post('/admin/clients/update', 'AdminController@update_client');
 Route::get('/admin/logs', 'AdminController@view_logs');
 Route::get('/admin/logs/new', 'AdminController@new_log');
-Route::post('/admin/logs/post', 'LogsController@create');
+Route::post('/admin/logs/create', 'LogsController@create');
 Route::get('/admin/revenue', 'AdminController@view_revenue');
 Route::get('/admin/revenue/new', 'AdminController@new_revenue');
 Route::get('/admin/logout', 'AdminController@logout');

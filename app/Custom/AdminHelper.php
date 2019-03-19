@@ -5,6 +5,7 @@ namespace App\Custom;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+
 use App\Admin;
 
 class AdminHelper {

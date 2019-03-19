@@ -5,7 +5,6 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="icon" href="{{ URL::asset('img/favicon.png') }}" type="image/png">
-		<meta name="google-site-verification" content="9naSyhSK_TmiuFUiewlHd_yvdmK_NyC6agCdCEDnm88" />
 
 		<!-- Page title -->
 		@if(isset($page_title))

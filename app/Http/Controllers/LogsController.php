@@ -4,7 +4,12 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail
+
+use App\Mail\NewLog;
+
 use App\Log;
+use App\Client;
 
 class LogsController extends Controller
 {
@@ -14,6 +19,10 @@ class LogsController extends Controller
     	$log->title = $data->title;
     	$log->description = $data->description;
     	$log->save();
+
+        // Get client data and send update email
+        $client = Client::find($data->client_id);
+        Mail::to($client->email)->send(new NewLog($client->first_name, $data->title, $data->description));
 
         return redirect(url($data->redirect_url));
     }
