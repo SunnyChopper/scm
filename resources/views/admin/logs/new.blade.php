@@ -25,7 +25,7 @@
 
 							<div class="form-group">
 								<label>Description:</label>
-								<textarea class="form-control" rows="6"></textarea>
+								<textarea name="description" form="create_log_form" class="form-control" rows="6"></textarea>
 							</div>
 
 							<div class="form-group">
