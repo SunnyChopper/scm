@@ -186,4 +186,21 @@ class AdminController extends Controller
 
         return view('admin.revenue.new')->with('page_title', $page_title)->with('clients', $clients);
     }
+
+    public function view_tasks() {
+        $page_title = "Tasks";
+
+        // Get tasks
+        $tasks = Task::where('is_active', 1)->paginate(50);
+
+        return view('admin.tasks.view')->with('page_title', $page_title)->with('tasks', $tasks);
+    }
+
+    public function new_task() {
+        $page_title = "Create New Task";
+
+        $clients = Client::where('is_active', '>', 0)->get();
+
+        return view('admin.tasks.new')->with('page_title', $page_title)->with('clients', $clients);
+    }
 }

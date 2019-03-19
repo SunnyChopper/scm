@@ -34,7 +34,7 @@
 				@endif
 			</div>
 
-			<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+			<div class="col-lg-6 col-md-6 col-sm-12 col-12 mt-32-mobile">
 				<div class="gray-box">
 					<h3 class="text-center">Log Events</h3>
 					@if(count($logs) > 0)

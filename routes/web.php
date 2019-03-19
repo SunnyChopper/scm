@@ -48,3 +48,8 @@ Route::post('/admin/logs/create', 'LogsController@create');
 Route::get('/admin/revenue', 'AdminController@view_revenue');
 Route::get('/admin/revenue/new', 'AdminController@new_revenue');
 Route::get('/admin/logout', 'AdminController@logout');
+Route::get('/admin/tasks', 'AdminController@view_tasks');
+Route::get('/admin/tasks/new', 'AdminController@new_task');
+Route::post('/admin/tasks/create', 'TasksController@create');
+Route::get('/admin/tasks/edit/{task_id}', 'AdminController@edit_task');
+Route::post('/admin/tasks/update', 'TasksController@update');

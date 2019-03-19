@@ -16,6 +16,8 @@ class TasksController extends Controller
     	$task->due_date = $data->due_date;
     	$task->save();
 
+        // TODO: Send new task email to client
+
         return redirect(url($data->redirect_url));
     }
 
@@ -32,6 +34,10 @@ class TasksController extends Controller
     	$task->due_date = $data->due_date;
     	$task->status = $data->status;
     	$task->save();
+
+        // TODO: Send updated task email to client
+
+        return redirect(url($data->redirect_url));
     }
 
     public function delete(Request $data) {
