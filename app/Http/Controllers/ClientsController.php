@@ -106,6 +106,7 @@ class ClientsController extends Controller
     public function create_password(Request $data) {
         $client = Client::find($data->client_id);
         $client->password = Hash::make($data->password);
+        $client->is_active = 1;
         $client->save();
 
         return redirect(url('/clients/login'));

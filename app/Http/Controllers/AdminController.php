@@ -65,7 +65,7 @@ class AdminController extends Controller
     	}
 
         // Get clients
-        $clients = Client::where('is_active', 1)->get();
+        $clients = Client::where('is_active', '>', 0)->get();
 
         // Get revenue objects
         $revenue = RevenueHelper::getRevenueForCurrentMonth();
