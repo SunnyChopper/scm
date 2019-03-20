@@ -7,7 +7,9 @@
 				<div class="gray-box">
 					<h3 class="text-center">Request a Task</h3>
 					<hr />
-					<form method="POST" id="request_task_form">
+					<form action="/clients/tasks/request" method="POST" id="request_task_form">
+						{{ csrf_field() }}
+						<input type="hidden" name="client_id" value="{{ $client_id }}">
 						<div class="form-group">
 							<h5>Title:</h5>
 							<input type="text" class="form-control" name="title" required>

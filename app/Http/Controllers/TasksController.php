@@ -4,6 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Mail;
+
+use App\Custom\ClientHelper;
+
+use App\Mail\NewTask;
+use App\Mail\UpdateTask;
+use App\Mail\TaskRequest;
+
 use App\Task;
 use App\Client;
 
@@ -25,6 +33,22 @@ class TasksController extends Controller
         return redirect(url($data->redirect_url));
     }
 
+    public function create_request(Request $data) {
+        $task = new Task;
+        $task->client_id = $data->client_id;
+        $task->title = $data->title;
+        $task->description = $data->description;
+        $task->due_date = $data->due_date;
+        $task->status = 0;
+        $task->save();
+
+        // Send email to myself
+        $company_name = ClientHelper::getCompanyName($data->client_id);
+        Mail::to("info@sunnychoppermedia.com")->send(new TaskRequest($company_name, $data->title, $data->description, $data->due_date));
+
+        return redirect(url('/clients/tasks'));
+    }
+
     public function read($task_id) {
     	$task = Task::find($task_id);
     	$page_title = $task->title;
@@ -41,7 +65,7 @@ class TasksController extends Controller
 
         // Get client data and send update email
         $client = Client::find($task->client_id);
-        Mail::to($client->email)->send(new NewTask($client->first_name, $data->title, $data->description, $data->status, $data->due_date));
+        Mail::to($client->email)->send(new UpdateTask($client->first_name, $data->title, $data->description, $data->status, $data->due_date));
 
         return redirect(url($data->redirect_url));
     }

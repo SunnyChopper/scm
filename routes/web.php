@@ -26,7 +26,7 @@ Route::post('/clients/password/set', 'ClientsController@create_password');
 Route::get('/clients/dashboard', 'ClientsController@dashboard');
 Route::get('/clients/tasks', 'TasksController@view_all');
 Route::get('/clients/tasks/request', 'TasksController@request');
-Route::post('/clients/tasks/new', 'TasksController@create');
+Route::post('/clients/tasks/request/create', 'TasksController@create_request');
 Route::get('/clients/logs', 'LogsController@view_all');
 Route::get('/clients/revenue', 'RevenuesController@view_all');
 
