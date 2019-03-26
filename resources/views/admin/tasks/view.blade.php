@@ -3,8 +3,8 @@
 @section('content')
 	<div class="container pt-64 pb-64">
 		<div class="row justify-content-center">
-			<div style="overflow: auto;">
-				<div class="col-12">
+			<div class="col-12">
+				<div style="overflow: auto;">
 					<table class="table table-striped">
 						<thead>
 							<tr>
