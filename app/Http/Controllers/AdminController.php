@@ -14,6 +14,7 @@ use App\Mail\NewClient;
 use App\Revenue;
 use App\Client;
 use App\Log;
+use App\Task;
 
 class AdminController extends Controller
 {

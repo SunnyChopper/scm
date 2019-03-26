@@ -6,7 +6,7 @@
 			@if(count($clients) > 0)
 			<div class="col-lg-8 col-md-9 col-sm-10 col-12">
 				<form id="create_task_form" action="/admin/tasks/create" method="POST">
-					{{ crsf_field() }}
+					{{ csrf_field() }}
 					<input type="hidden" name="redirect_url" value="/admin/tasks">
 					<div class="gray-box">
 						<div class="form-group">
