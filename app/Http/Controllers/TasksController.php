@@ -32,7 +32,7 @@ class TasksController extends Controller
             $rice_score = ($data->reach * $data->impact * $data->confidence) / $data->ease;
             $task->rice_score = $rice_score; 
         }
-
+        $task->status = $data->status;
     	$task->save();
 
         // Get client data and send update email
