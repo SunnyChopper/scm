@@ -29,10 +29,10 @@ class TasksController extends Controller
             $task->impact = $data->impact;
             $task->confidence = $data->confidence;
             $task->ease = $data->ease;
-            $rice_score = ($reach * $impact * $confidence) / $ease;
+            $rice_score = ($data->reach * $data->impact * $data->confidence) / $data->ease;
             $task->rice_score = $rice_score; 
         }
-        
+
     	$task->save();
 
         // Get client data and send update email
@@ -76,7 +76,7 @@ class TasksController extends Controller
             $task->impact = $data->impact;
             $task->confidence = $data->confidence;
             $task->ease = $data->ease;
-            $rice_score = ($reach * $impact * $confidence) / $ease;
+            $rice_score = ($data->reach * $data->impact * $data->confidence) / $data->ease;
             $task->rice_score = $rice_score; 
         }
         
