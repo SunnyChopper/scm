@@ -13,6 +13,7 @@
 								<th>Description</th>
 								<th>Due Date</th>
 								<th>Status</th>
+								<th>RICE Score</th>
 								<th></th>
 							</tr>
 						</thead>
@@ -34,6 +35,12 @@
 										<td><span class="badge badge-warning">In Progress</span></td>
 									@elseif($task->status == 4)
 										<td><span class="badge badge-success">Done</span></td>
+									@endif
+
+									@if($task->rice_score != null)
+										<td>{{ sprintf("%.2f", $task->rice_score) }}</td>
+									@else
+										<td>No RICE score available.</td>
 									@endif
 
 									<td>

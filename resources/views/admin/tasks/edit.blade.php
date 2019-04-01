@@ -38,6 +38,28 @@
                         <input type="date" name="due_date" class="form-control" value="{{ $task->due_date }}" required>
                     </div>
 
+                    <div class="form-group row">
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <label>Reach:</label>
+                            <input type="num" class="form-control" min="0" step="1" value="{{ $task->reach }}" name="reach">
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <label>Impact:</label>
+                            <input type="num" class="form-control" min="0" step="1" value="{{ $task->impact }}" name="impact">
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <label>Confidence:</label>
+                            <input type="num" class="form-control" min="0" step="1" value="{{ $task->confidence }}" name="confidence">
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 col-12">
+                            <label>Ease:</label>
+                            <input type="num" class="form-control" min="0" step="1" value="{{ $task->ease }}" name="ease">
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <input type="submit" class="primary_btn centered pr-4 pl-4" value="Update Task">
                     </div>

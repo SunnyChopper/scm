@@ -23,7 +23,12 @@
 
 								<h4>{{ $task->title }}</h4>
 								<p>{{ $task->description }}</p>
-								<p><strong>Expected due date:</strong> {{ $task->due_date }}</p>
+								<p>
+									<strong>Expected due date:</strong> {{ $task->due_date }}
+									@if($task->rice_score != null)
+									 | <strong>Priority score:</strong> {{ $task->rice_score }}
+									@endif
+								</p>
 							</li>
 						</ul>
 					@endforeach

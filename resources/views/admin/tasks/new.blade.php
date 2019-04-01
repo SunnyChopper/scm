@@ -44,6 +44,28 @@
 							<input type="date" class="form-control" name="due_date" required>
 						</div>
 
+						<div class="form-group row">
+							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+								<label>Reach:</label>
+								<input type="num" class="form-control" min="0" step="1" name="reach">
+							</div>
+
+							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+								<label>Impact:</label>
+								<input type="num" class="form-control" min="0" step="1" name="impact">
+							</div>
+
+							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+								<label>Confidence:</label>
+								<input type="num" class="form-control" min="0" step="1" name="confidence">
+							</div>
+
+							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
+								<label>Ease:</label>
+								<input type="num" class="form-control" min="0" step="1" name="ease">
+							</div>
+						</div>
+
 						<div class="form-group">
 							<input type="submit" class="primary_btn pr-4 pl-4 centered" value="Create Task">
 						</div>
