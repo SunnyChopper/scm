@@ -23,13 +23,16 @@ class TasksController extends Controller
     	$task->title = $data->title;
     	$task->description = $data->description;
         $task->due_date = $data->due_date;
-        $task->status = $data->status;
-        $task->reach = $data->reach;
-        $task->impact = $data->impact;
-        $task->confidence = $data->confidence;
-        $task->ease = $data->ease;
-        $rice_score = ($reach * $impact * $confidence) / $ease;
-        $task->rice_score = $rice_score;
+        
+        if (isset($data->reach)) {
+            $task->reach = $data->reach;
+            $task->impact = $data->impact;
+            $task->confidence = $data->confidence;
+            $task->ease = $data->ease;
+            $rice_score = ($reach * $impact * $confidence) / $ease;
+            $task->rice_score = $rice_score; 
+        }
+        
     	$task->save();
 
         // Get client data and send update email
@@ -67,12 +70,16 @@ class TasksController extends Controller
     	$task->description = $data->description;
     	$task->due_date = $data->due_date;
     	$task->status = $data->status;
-        $task->reach = $data->reach;
-        $task->impact = $data->impact;
-        $task->confidence = $data->confidence;
-        $task->ease = $data->ease;
-        $rice_score = ($reach * $impact * $confidence) / $ease;
-        $task->rice_score = $rice_score;
+
+        if (isset($data->reach)) {
+            $task->reach = $data->reach;
+            $task->impact = $data->impact;
+            $task->confidence = $data->confidence;
+            $task->ease = $data->ease;
+            $rice_score = ($reach * $impact * $confidence) / $ease;
+            $task->rice_score = $rice_score; 
+        }
+        
     	$task->save();
 
         // Get client data and send update email
