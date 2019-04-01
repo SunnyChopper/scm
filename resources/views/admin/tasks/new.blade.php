@@ -54,7 +54,9 @@
 								<label>Impact:</label>
 								<input type="num" class="form-control" min="0" step="1" name="impact">
 							</div>
+						</div>
 
+						<div class="form-group row">
 							<div class="col-lg-6 col-md-6 col-sm-12 col-12">
 								<label>Confidence:</label>
 								<input type="num" class="form-control" min="0" step="1" name="confidence">

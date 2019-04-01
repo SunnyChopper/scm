@@ -48,7 +48,9 @@
                             <label>Impact:</label>
                             <input type="num" class="form-control" min="0" step="1" value="{{ $task->impact }}" name="impact">
                         </div>
-
+                    </div>
+                    
+                    <div class="form-group row">
                         <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                             <label>Confidence:</label>
                             <input type="num" class="form-control" min="0" step="1" value="{{ $task->confidence }}" name="confidence">
