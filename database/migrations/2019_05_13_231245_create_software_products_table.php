@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateRevenuesTable extends Migration
+class CreateSoftwareProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,14 @@ class CreateRevenuesTable extends Migration
      */
     public function up()
     {
-        Schema::create('revenues', function (Blueprint $table) {
+        Schema::create('software_products', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('client_id');
-            $table->date('report_date');
-            $table->double('amount');
+            $table->string('title', 128);
+            $table->text('description')->nullable();
+            $table->string('use_case_link', 256)->nullable();
+            $table->string('design_class_link', 256)->nullable();
+            $table->double('price');
             $table->integer('is_active')->default(1);
             $table->timestamps();
         });
@@ -30,6 +33,6 @@ class CreateRevenuesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('revenues');
+        Schema::dropIfExists('software_products');
     }
 }

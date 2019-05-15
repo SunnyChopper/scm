@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
 
+use App\SoftwareProduct;
 use App\Client;
-use App\Log;
 use App\Task;
+use App\Log;
 
 class ClientsController extends Controller
 {
@@ -21,13 +22,20 @@ class ClientsController extends Controller
     public function login(Request $data) {
     	if (Client::where('email', strtolower($data->email))->count() > 0) {
             $client = Client::where('email', strtolower($data->email))->first();
-            if (Hash::check($data->password, $client->password)) {
+            if ($client->password == NULL) {
                 Session::put('client_id', $client->id);
                 Session::put('client_logged_in', true);
                 Session::save();
-                return redirect(url('/clients/dashboard'));
+                return redirect(url('/clients/password/initial/' . $client->id));
             } else {
-                return redirect()->back()->with('error', 'Password is incorrect.');
+                if (Hash::check($data->password, $client->password)) {
+                    Session::put('client_id', $client->id);
+                    Session::put('client_logged_in', true);
+                    Session::save();
+                    return redirect(url('/clients/dashboard'));
+                } else {
+                    return redirect()->back()->with('error', 'Password is incorrect.');
+                } 
             }
         } else {
             return redirect()->back()->with('error', 'Email not associated to any account.');
@@ -68,6 +76,16 @@ class ClientsController extends Controller
         }
 
         $client->save();
+    }
+
+    public function view_software_products() {
+        $client_id = $this->get_client_id();
+        $products = SoftwareProduct::where('client_id', $client_id)->get();
+
+        $page_title = "Your Software Products";
+        $page_header = $page_title;
+
+        return view('clients.software.view')->with('page_title', $page_title)->with('page_header', $page_header)->with('products', $products);
     }
 
     public function update_client(Request $data) {

@@ -13,12 +13,13 @@
 						</div>
 
 						<div class="form-group">
-							<h5>Password:</h5>
-							<input type="password" class="form-control" name="password" required>
+							<h5 class="mb-0">Password:</h5>
+							<p class="mb-2">Type "NA" if you have not set a password.</p>
+							<input type="password" class="form-control" name="password">
 						</div>
 
 						@if(session()->has('error'))
-							<p class="red text-center mb-0">{{ session()->get('error') }}</p>
+							<p class="red text-center">{{ session()->get('error') }}</p>
 						@endif
 
 						<div class="form-group mb-0">

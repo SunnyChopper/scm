@@ -53,7 +53,7 @@
 					</div>
 				@elseif(App\Custom\ClientHelper::isLoggedIn())
 					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-						<ul class="nav navbar-nav menu_na justify-content-center">
+						<ul class="nav navbar-nav navbar-right" style="margin-left: auto; margin-right: 0px;">
 							<li class="nav-item"><a class="nav-link" href="/clients/dashboard">Dashboard</a></li>
 
 							<li class="nav-item submenu dropdown">
@@ -65,6 +65,7 @@
 
 							<li class="nav-item"><a class="nav-link" href="/clients/revenue">Revenue</a></li>
 							<li class="nav-item"><a class="nav-link" href="/clients/logs">Logs</a></li>
+							<li class="nav-item"><a class="nav-link" href="/clients/products">Software Products</a></li>
 						</ul>
 					</div>
 				@else

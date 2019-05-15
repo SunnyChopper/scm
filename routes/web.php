@@ -29,6 +29,7 @@ Route::get('/clients/tasks/request', 'TasksController@request');
 Route::post('/clients/tasks/request/create', 'TasksController@create_request');
 Route::get('/clients/logs', 'LogsController@view_all');
 Route::get('/clients/revenue', 'RevenuesController@view_all');
+Route::get('/clients/products', 'ClientsController@view_software_products');
 
 // Admin dashboard
 Route::get('/admin/register/{p}', 'AdminController@create_admin');

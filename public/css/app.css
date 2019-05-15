@@ -67,6 +67,18 @@ a:hover {
 	}
 }
 
+.header_area .navbar {
+	background: white;
+}
+
+.icon-bar {
+	border: 2px solid black;
+}
+
+.header_area .navbar .nav .nav-item .nav-link {
+	color: black;
+}
+
 /* ------------------------ *\
 	Custom Divs
 \* ------------------------ */
