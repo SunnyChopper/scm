@@ -501,7 +501,7 @@
 }
 
 .black {
-	color: red;
+	color: black;
 }
 
 .white {
@@ -529,18 +529,18 @@
 .centered {
 	display: block;
 	width: fit-content;
-	margin-right: auto !important;
-	margin-left: auto !important;
+	margin-right: auto;
+	margin-left: auto;
 }
 
-.left-button {
+.left-justify {
 	display: block;
 	width: fit-content;
 	margin-right: auto;
 	margin-left: 0px;
 }
 
-.right-button {
+.right-justify {
 	display: block;
 	width: fit-content;
 	margin-right: 0px;
@@ -560,43 +560,137 @@
 }
 
 @media only screen and (max-width: 575px) {
-	.mobile-center-button {
+	.center-content-mobile {
 		display: block;
 		width: fit-content;
 		margin-right: auto;
 		margin-left: auto;
 	}
 
-	.mobile-left-button {
+	.left-justify-mobile {
 		display: block;
 		width: fit-content;
 		margin-right: auto;
 		margin-left: 0px;
 	}
 
-	.mobile-right-button {
+	.right-justify-mobile {
 		display: block;
 		width: fit-content;
 		margin-right: 0px;
 		margin-left: auto;
 	}	
 
-	.mobile-text-center {
+	.text-center-mobile {
 		text-align: center;
 	}
 
-	.mobile-text-left {
+	.text-left-mobile {
 		text-align: left;
 	}
 
-	.mobile-text-right {
+	.text-right-mobile {
 		text-align: right;
+	}
+
+	.center-content-mobile {
+		display: flex;
+		display: -webkit-flex;
+		flex-wrap: wrap;
+	}
+}
+
+@media only screen and (min-width: 575px) and (max-width: 992px) {
+	.center-content-tablet {
+		display: block;
+		width: fit-content;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.left-justify-tablet {
+		display: block;
+		width: fit-content;
+		margin-right: auto;
+		margin-left: 0px;
+	}
+
+	.right-justify-tablet {
+		display: block;
+		width: fit-content;
+		margin-right: 0px;
+		margin-left: auto;
+	}	
+
+	.text-center-tablet {
+		text-align: center;
+	}
+
+	.text-left-tablet {
+		text-align: left;
+	}
+
+	.text-right-tablet {
+		text-align: right;
+	}
+
+	.center-content-tablet {
+		display: flex;
+		display: -webkit-flex;
+		flex-wrap: wrap;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.center-content-desktop {
+		display: block;
+		width: fit-content;
+		margin-right: auto;
+		margin-left: auto;
+	}
+
+	.left-justify-desktop {
+		display: block;
+		width: fit-content;
+		margin-right: auto;
+		margin-left: 0px;
+	}
+
+	.right-justify-desktop {
+		display: block;
+		width: fit-content;
+		margin-right: 0px;
+		margin-left: auto;
+	}	
+
+	.text-center-desktop {
+		text-align: center;
+	}
+
+	.text-left-desktop {
+		text-align: left;
+	}
+
+	.text-right-desktop {
+		text-align: right;
+	}
+
+	.center-content-desktop {
+		display: flex;
+		display: -webkit-flex;
+		flex-wrap: wrap;
 	}
 }
 
 /* -------------------------- *\
 	Custom Images
 \* -------------------------- */
+
+.regular-image {
+	width: 100%;
+	height: auto;
+}
+
 
 .regular-image-100 {
 	width: 100%;
@@ -700,6 +794,110 @@
 	}
 }
 
+@media only screen and (min-width: 575px) and (max-width: 992px) {
+	.regular-image-100-tablet {
+		width: 100%;
+		height: auto;
+	}
+
+	.regular-image-90-tablet {
+		width: 90%;
+		height: auto;
+	}
+
+	.regular-image-80-tablet {
+		width: 80%;
+		height: auto;
+	}
+
+	.regular-image-70-tablet {
+		width: 70%;
+		height: auto;
+	}
+
+	.regular-image-60-tablet {
+		width: 60%;
+		height: auto;
+	}
+
+	.regular-image-50-tablet {
+		width: 50%;
+		height: auto;
+	}
+
+	.regular-image-40-tablet {
+		width: 40%;
+		height: auto;
+	}
+
+	.regular-image-30-tablet {
+		width: 30%;
+		height: auto;
+	}
+
+	.regular-image-20-tablet {
+		width: 20%;
+		height: auto;
+	}
+
+	.regular-image-10-tablet {
+		width: 10%;
+		height: auto;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.regular-image-100-desktop {
+		width: 100%;
+		height: auto;
+	}
+
+	.regular-image-90-desktop {
+		width: 90%;
+		height: auto;
+	}
+
+	.regular-image-80-desktop {
+		width: 80%;
+		height: auto;
+	}
+
+	.regular-image-70-desktop {
+		width: 70%;
+		height: auto;
+	}
+
+	.regular-image-60-desktop {
+		width: 60%;
+		height: auto;
+	}
+
+	.regular-image-50-desktop {
+		width: 50%;
+		height: auto;
+	}
+
+	.regular-image-40-desktop {
+		width: 40%;
+		height: auto;
+	}
+
+	.regular-image-30-desktop {
+		width: 30%;
+		height: auto;
+	}
+
+	.regular-image-20-desktop {
+		width: 20%;
+		height: auto;
+	}
+
+	.regular-image-10-desktop {
+		width: 10%;
+		height: auto;
+	}
+}
+
 /* -------------------------- *\
 	Custom Video
 \* -------------------------- */
@@ -717,4 +915,15 @@
 	left: 0;
 	width: 100%;
 	height: 100%;
+}
+
+/* -------------------------- *\
+	UI Elements
+\* -------------------------- */
+
+.gray-box {
+	background: hsla(0, 0%, 95%);
+	padding: 24px;
+	border-radius: 8px;
+	border-bottom: 2px solid hsla(0, 0%, 90%);
 }

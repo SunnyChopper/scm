@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+	@include('layouts.banner')
+
 	<div class="container pt-64 pb-64">
 		<div class="row justify-content-center">
 			<div class="col-lg-5 col-md-6 col-sm-8 col-12">
@@ -8,13 +10,12 @@
 					{{ csrf_field() }}
 					<div class="gray-box">
 						<div class="form-group">
-							<h5>Email:</h5>
+							<h6 class="mb-2">Email:</h6>
 							<input type="email" class="form-control" name="email" required>
 						</div>
 
 						<div class="form-group">
-							<h5 class="mb-0">Password:</h5>
-							<p class="mb-2">Type "NA" if you have not set a password.</p>
+							<h6 class="mb-2">Password:</h6>
 							<input type="password" class="form-control" name="password">
 						</div>
 
@@ -23,7 +24,7 @@
 						@endif
 
 						<div class="form-group mb-0">
-							<input type="submit" value="Login" class="primary_btn pl-4 pr-4 centered">
+							<input type="submit" value="Login" class="btn btn-primary pl-4 pr-4 centered">
 						</div>
 					</div>
 				</form>

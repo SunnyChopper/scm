@@ -6,6 +6,16 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		<link rel="icon" href="{{ URL::asset('img/favicon.png') }}" type="image/png">
 
+		<script>
+			addEventListener("load", function () {
+				setTimeout(hideURLbar, 0);
+			}, false);
+
+			function hideURLbar() {
+				window.scrollTo(0, 1);
+			}
+		</script>
+
 		<!-- Page title -->
 		@if(isset($page_title))
 			<title>{{ $page_title }} - {{ config('app.name') }}</title>
@@ -13,20 +23,18 @@
 			<title>{{ env('APP_NAME') }}</title>
 		@endif
 
+		<link href="https://fonts.googleapis.com/css?family=Cabin:400,400i,500,500i,600,600i,700,700i&amp;subset=latin-ext,vietnamese" rel="stylesheet">
+
 		<!-- Bootstrap CSS -->
-		<link rel="stylesheet" href="{{ URL::asset('css/bootstrap.css') }}">
-		<link rel="stylesheet" href="{{ URL::asset('vendors/linericon/style.css') }}">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-		<link rel="stylesheet" href="{{ URL::asset('vendors/owl-carousel/owl.carousel.min.css') }}">
-		<link rel="stylesheet" href="{{ URL::asset('css/magnific-popup.css') }}">
-		<link rel="stylesheet" href="{{ URL::asset('vendors/nice-select/css/nice-select.css') }}">
-		<link rel="stylesheet" href="{{ URL::asset('vendors/animate-css/animate.css') }}">
-		<link rel="stylesheet" href="{{ URL::asset('vendors/flaticon/flaticon.css') }}">
+		<link href="{{ URL::asset('css/bootstrap.css') }}" rel='stylesheet' type='text/css' /><!-- bootstrap css -->
+	    <link href="{{ URL::asset('css/style.css') }}" rel='stylesheet' type='text/css' /><!-- custom css -->
+	    <link href="{{ URL::asset('css/font-awesome.min.css') }}" rel="stylesheet">
+	    <script src="https://kit.fontawesome.com/499c790285.js"></script>
 
 		<!-- Main css -->
-		<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/style.css') }}">
-		<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/layouts.css') }}">
 		<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/app.css') }}">
+		<link rel="stylesheet" type="text/css" href="{{ URL::asset('css/layouts.css') }}">
+
 	</head>
 	<body>
 		@include('layouts.navbar')

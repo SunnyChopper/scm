@@ -1,12 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
+	@include('layouts.banner')
+
 	<div class="container pt-64 pb-64">
 		<div class="row">
 			<div class="col-12">
 				<h2 class="text-center">How Much Does It Cost?</h2>
-				<p class="text-center">You don't pay a single penny until you make money. Click below to apply to become a partner.</p>
-				<a href="/apply" class="primary_btn pl-4 pr-4 centered">Apply Now</a>
+				<p class="text-center mt-3">You don't pay a single penny until you make money. Click below to apply to become a partner.</p>
+				<a href="{{ url('/apply') }}" class="btn btn-primary mt-16 pl-4 pr-4 centered">Apply Now</a>
 			</div>
 		</div>
 	</div>
@@ -33,8 +35,8 @@
 			<div class="row">
 				<div class="col-12">
 					<h2 class="text-center white">Ready to Make Money?</h2>
-					<p class="text-center white">Remember, we don't charge you a penny until we make you money. If you're ready to go, click the button below to apply to become one of our social media partners.</p>
-					<a href="/apply" class="primary_btn centered pl-4 pr-4">Apply Now</a>
+					<p class="text-center white mt-3" style="line-height: 1.25em;">Remember, we don't charge you a penny until we make you money. If you're ready to go, click the button below to apply to become one of our social media partners.</p>
+					<a href="/apply" class="btn btn-primary mt-16 centered pl-4 pr-4">Apply Now</a>
 				</div>
 			</div>
 		</div>

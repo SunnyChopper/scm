@@ -1,93 +1,71 @@
-<header class="header_area">
-	<div class="main_menu">
-		<nav class="navbar navbar-expand-lg navbar-light">
-			<div class="container">
-				<!-- Brand and toggle get grouped for better mobile display -->
-				<a class="navbar-brand logo_h" href="{{ url('/') }}"><img src="{{ URL::asset('img/logo.png') }}" alt=""></a>
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-				 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-					<span class="icon-bar"></span>
-				</button>
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				@if(App\Custom\AdminHelper::isLoggedIn())
-					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-						<ul class="nav navbar-nav menu_nav justify-content-center">
-							<li class="nav-item"><a class="nav-link" href="/admin/dashboard">Dashboard</a></li>
-
-							<li class="nav-item submenu dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="/admin/clients">Clients</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="/admin/clients">View Clients</a>
-									<li class="nav-item"><a class="nav-link" href="/admin/clients/new">Create New Client</a></li>
-								</ul>
-							</li>
-
-							<li class="nav-item submenu dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="/admin/logs">Logs</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="/admin/logs">View Logs</a></li>
-									<li class="nav-item"><a class="nav-link" href="/admin/logs/new">Create New Log</a></li>
-								</ul>
-							</li>
-
-							<li class="nav-item submenu dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="/admin/revenue">Revenue</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="/admin/revenue">View Revenue</a>
-									<li class="nav-item"><a class="nav-link" href="/admin/revenue/new">Create New Revenue</a></li>
-								</ul>
-							</li>
-
-							<li class="nav-item submenu dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="/admin/tasks">Tasks</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="/admin/tasks">View Tasks</a></li>
-									<li class="nav-item"><a class="nav-link" href="/admin/tasks/new">Create Task</a></li>
-								</ul>
-							</li>
-
-							<li class="nav-item"><a class="nav-link" href="/admin/logout">Logout</a></li>
-						</ul>
-					</div>
-				@elseif(App\Custom\ClientHelper::isLoggedIn())
-					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-						<ul class="nav navbar-nav navbar-right" style="margin-left: auto; margin-right: 0px;">
-							<li class="nav-item"><a class="nav-link" href="/clients/dashboard">Dashboard</a></li>
-
-							<li class="nav-item submenu dropdown">
-								<a class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" href="/clients/tasks">Tasks</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="/clients/tasks/request">Request Task</a></li>
-								</ul>
-							</li>
-
-							<li class="nav-item"><a class="nav-link" href="/clients/revenue">Revenue</a></li>
-							<li class="nav-item"><a class="nav-link" href="/clients/logs">Logs</a></li>
-							<li class="nav-item"><a class="nav-link" href="/clients/products">Software Products</a></li>
-						</ul>
-					</div>
-				@else
-					<div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-						<ul class="nav navbar-nav menu_nav justify-content-center">
-							<li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-							{{-- <li class="nav-item"><a class="nav-link" href="">Tips & Advice</a></li> --}}
-							<li class="nav-item"><a class="nav-link" href="/pricing">Pricing</a></li>
-							<li class="nav-item submenu dropdown">
-								<a href="/services" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Services</a>
-								<ul class="dropdown-menu">
-									<li class="nav-item"><a class="nav-link" href="/services/web-dev">Web Development</a></li>
-								</ul>
-							</li>
-							<li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-							<li class="nav-item"><a href="/apply" class="primary_btn text-uppercase">Apply Now</a></li>
-						</ul>
-					</div>
-				@endif
+<header class="py-4">
+	<div class="container">
+			<div id="logo">
+				<h1><a href="{{ url('/') }}"><span class="fa fa-cloud" aria-hidden="true"></span> SunnyChopper Media</a></h1>
 			</div>
+		<!-- nav -->
+		<nav class="d-lg-flex">
+
+			<label for="drop" class="toggle"><span class="fa fa-bars" aria-hidden="true"></span></label>
+			<input type="checkbox" id="drop" />
+
+			@if(Auth::guest() && App\Custom\ClientHelper::isLoggedIn() == false)			
+			<ul class="menu mt-2 ml-auto">
+				<li><a href="{{ url('/') }}">Home</a></li>
+				{{-- <li class=""><a href="{{ url('/') }}">Tips & Advice</a></li> --}}
+				<li><a href="{{ url('/pricing') }}">Pricing</a></li>
+
+				<li>
+					<!-- First Tier Drop Down -->
+					<label for="drop-2" class="toggle">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+					<a href="{{ url('/services') }}">Services <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+					<input type="checkbox" id="drop-2"/>
+					<ul class="inner-ul">
+						<li><a href="{{ url('/services/web-dev') }}">Web Development</a></li>
+					</ul>
+				</li>
+
+				<li><a href="{{ url('/contact') }}">Contact</a></li>
+				<li><a href="{{ url('/clients/register') }}">Register</a></li>
+			</ul>
+			<div class="login-icon ml-lg-2">
+				<a class="user" href="{{ url('/clients/login') }}">Login</a>
+			</div>
+			@elseif(App\Custom\ClientHelper::isLoggedIn() == true)
+			<ul class="menu mt-2 ml-auto">
+				<li><a href="{{ url('/clients/dashboard') }}">Dashboard</a></li>
+
+				<li>
+					<!-- First Tier Drop Down -->
+					<label for="drop-2" class="toggle">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+					<a href="{{ url('/clients/tasks') }}">Tasks <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+					<input type="checkbox" id="drop-2"/>
+					<ul class="inner-ul">
+						<li><a href="{{ url('/clients/tasks/request') }}">Request Task</a></li>
+					</ul>
+				</li>
+
+				<li><a href="{{ url('/clients/revenue') }}">Revenue</a></li>
+				<li><a href="{{ url('/clients/logs') }}">Logs</a></li>
+				<li><a href="{{ url('/clients/products') }}">Software Products</a></li>
+			</ul>
+			<div class="login-icon ml-lg-2">
+				<a class="user" href="{{ url('/clients/logout') }}">Logout</a>
+			</div>
+			@elseif(App\Custom\AdminHelper::isLoggedIn())
+			<ul class="menu mt-2 ml-auto">
+				<li><a href="{{ url('/admin/dashboard') }}">Dashboard</a></li>
+				<li><a href="{{ url('/admin/clients') }}">Clients</a></li>
+				<li><a href="{{ url('/admin/logs') }}">Logs</a></li>
+				<li><a href="{{ url('/admin/revenue') }}">Revenue</a></li>
+				<li><a href="{{ url('/admin/tasks') }}">Tasks</a></li>
+			</ul>
+			<div class="login-icon ml-lg-2">
+				<a class="user" href="{{ url('/admin/logout') }}">Logout</a>
+			</div>
+			@endif
 		</nav>
+		<div class="clear"></div>
+		<!-- //nav -->
 	</div>
 </header>

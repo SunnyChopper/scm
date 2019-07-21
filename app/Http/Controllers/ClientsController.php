@@ -14,10 +14,21 @@ use App\Log;
 class ClientsController extends Controller
 {
     public function index() {
-    	$page_title = "Client Login";
+    	$page_title = "Clients Login";
+        $page_header = $page_title;
 
-    	return view('clients.login')->with('page_title', $page_title);
+    	return view('clients.login')->with('page_title', $page_title)->with('page_header', $page_header);
     }
+
+    public function register() {
+        $page_title = "Register";
+
+        return view('clients.register')->with('page_title', $page_title);
+    }
+
+    public function attempt_register(Request $data) {
+
+    } 
 
     public function login(Request $data) {
     	if (Client::where('email', strtolower($data->email))->count() > 0) {
@@ -70,11 +81,6 @@ class ClientsController extends Controller
         $client->email = $data->email;
         $client->password = $data->password;
         $client->company_name = $data->company_name;
-
-        if (isset($data->logo_url)) {
-            $client->logo_url = $data->logo_url;
-        }
-
         $client->save();
     }
 

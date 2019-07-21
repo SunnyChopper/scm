@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
+	@include('layouts.banner')
+
 	<div class="container pt-64 pb-64">
 		<div class="row">
 			<div class="col-lg-12 col-md-12 col-sm-12 col-12">
 				<h2 class="text-center">Why Do I Need A Website?</h2>
-				<p class="text-center">Monetizing your brand means that you need a central location where you can distribute your content, products, and services. This is where web development comes in handy. Even if you don't need a website, having a web server can prove to be extremely helpful when you want to start selling products.</p>
+				<p class="text-center mt-3">Monetizing your brand means that you need a central location where you can distribute your content, products, and services. This is where web development comes in handy. Even if you don't need a website, having a web server can prove to be extremely helpful when you want to start selling products.</p>
 			</div>
 		</div>
 	</div>
@@ -18,27 +20,27 @@
 				</div>
 			</div>
 
-			<div class="row mt-32">
+			<div class="row mt-64">
 				<div class="col-lg-4 col-md-4 col-sm-12 col-12">
 					<div class="icon-box">
-						<i class="fas fa-signal centered"></i>
-						<h3 class="text-center mt-16">Scalable Systems</h3>
+						<i class="fas fa-signal centered mb-32" style="font-size: 3em;"></i>
+						<h3 class="text-center mt-16 mb-3">Scalable Systems</h3>
 						<p class="text-center">No matter how much traffic you send to your website, your server will not crash. We design our systems based on proven principles that allow you to send as much traffic with little to no effect on user experience.</p>
 					</div>
 				</div>
 
 				<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-32-mobile">
 					<div class="icon-box">
-						<i class="fas fa-lock centered"></i>
-						<h3 class="text-center mt-16">SSL Secured</h3>
+						<i class="fas fa-lock centered mb-32" style="font-size: 3em;"></i>
+						<h3 class="text-center mt-16 mb-3">SSL Secured</h3>
 						<p class="text-center">We care about protecting you from malicious hacks and we care about your customer's privacy. Every website and app we build is secured with a 256 bit SSL. Security of your information is our priority.</p>
 					</div>
 				</div>
 
 				<div class="col-lg-4 col-md-4 col-sm-12 col-12 mt-32-mobile">
 					<div class="icon-box">
-						<i class="fas fa-database centered"></i>
-						<h3 class="text-center mt-16">Easy-to-Use API</h3>
+						<i class="fas fa-database centered mb-32" style="font-size: 3em;"></i>
+						<h3 class="text-center mt-16 mb-3">Easy-to-Use API</h3>
 						<p class="text-center">In order to quickly engineer websites and mobile apps for you, we take our time to build out an API from the ground up. This means that we can quickly deploy your website or app to multiple devices.</p>
 					</div>
 				</div>

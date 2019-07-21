@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 
+use App\Client;
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -15,4 +17,13 @@ use Illuminate\Http\Request;
 
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
+});
+
+Route::get('/clients/email/check', function() {
+	$email = $_GET['email'];
+	if (Client::where('email', strtolower($email))->where('is_active', '!=', 0)->count() > 0){
+		return response()->json(false, 200);
+	} else {
+		return response()->json(true, 200);
+	}
 });

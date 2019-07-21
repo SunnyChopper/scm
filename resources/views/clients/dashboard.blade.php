@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+	@include('layouts.banner')
+
 	<div class="container pt-64 pb-64">
 		<div class="row">
 			<div class="col-lg-6 col-md-6 col-sm-12 col-12">
