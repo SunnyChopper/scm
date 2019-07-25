@@ -1,0 +1,21 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+
+class InvoiceProduct extends Model
+{
+    
+	protected $table = "invoice_products";
+    public $primaryKey = "id";
+
+    public function scopeActive($query) {
+    	return $query->where('is_active', 1);
+    }
+
+    public function scopeInactive($query) {
+    	return $query->where('is_active', 0);
+    }
+
+}

@@ -34,20 +34,36 @@
 			@elseif(App\Custom\ClientHelper::isLoggedIn() == true)
 			<ul class="menu mt-2 ml-auto">
 				<li><a href="{{ url('/clients/dashboard') }}">Dashboard</a></li>
-
+				<li><a href="{{ url('/clients/premium') }}">Premium Content</a></li>
 				<li>
 					<!-- First Tier Drop Down -->
-					<label for="drop-2" class="toggle">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
-					<a href="{{ url('/clients/tasks') }}">Tasks <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+					<label for="drop-2" class="toggle">Tools <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+					<a href="{{ url('/clients/tools') }}">Tools <span class="fa fa-angle-down" aria-hidden="true"></span></a>
 					<input type="checkbox" id="drop-2"/>
 					<ul class="inner-ul">
-						<li><a href="{{ url('/clients/tasks/request') }}">Request Task</a></li>
+						<li><a href="{{ url('/clients/tools/lead-builder') }}">Lead Magnet Builder Kit</a></li>
 					</ul>
 				</li>
 
-				<li><a href="{{ url('/clients/revenue') }}">Revenue</a></li>
-				<li><a href="{{ url('/clients/logs') }}">Logs</a></li>
-				<li><a href="{{ url('/clients/products') }}">Software Products</a></li>
+				<li><a href="{{ url('/clients/orders') }}">Orders</a></li>
+
+				@if(\App\Custom\InvoicesHelper::isCustomer(\App\Custom\ClientHelper::getID()) == true)
+					<li>
+						<!-- First Tier Drop Down -->
+						<label for="drop-2" class="toggle">Tasks <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+						<a href="{{ url('/clients/tasks') }}">Tasks <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+						<input type="checkbox" id="drop-2"/>
+						<ul class="inner-ul">
+							<li><a href="{{ url('/clients/tasks/request') }}">Request Task</a></li>
+						</ul>
+					</li>
+
+					<li><a href="{{ url('/clients/revenue') }}">Revenue</a></li>
+					<li><a href="{{ url('/clients/logs') }}">Logs</a></li>
+					<li><a href="{{ url('/clients/products') }}">Software Products</a></li>
+				@endif
+
+				
 			</ul>
 			<div class="login-icon ml-lg-2">
 				<a class="user" href="{{ url('/clients/logout') }}">Logout</a>

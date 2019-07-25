@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+	@include('layouts.banner')
+	
 	<div class="container pt-64 pb-64">
 		<div class="row justify-content-center">
 			<div class="col-lg-7 col-md-8 col-sm-10 col-12">

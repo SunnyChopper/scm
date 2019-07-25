@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+	@include('layouts.banner')
+
 	<div class="container pt-64 pb-64">
 		<div class="row">
 			@if(count($products) > 0)
@@ -32,8 +34,8 @@
 			</div>
 			@else
 			<div class="col-12">
-				<h1 class="text-center">No Software Products</h1>
-				<p class="text-center">There are currently no products or services in our database for your business. We're most likely hard at work to fix this.</p>	
+				<h1 class="text-center mb-2">No Software Products</h1>
+				<p class="text-center">There are currently no products or services in our database for your business. We're hard at work to fix this.</p>	
 			</div>
 			@endif
 		</div>

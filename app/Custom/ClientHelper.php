@@ -9,6 +9,10 @@ use App\Client;
 
 class ClientHelper {
 
+	public static function getID() {
+		return Session::get('client_id');
+	}
+
 	public static function getCompanyName($client_id) {
 		$client = Client::find($client_id);
 		return $client->company_name;
@@ -30,12 +34,8 @@ class ClientHelper {
 	}
 
 	public static function isLoggedIn() {
-		if (Session::has('client_logged_in')) {
-            if (Session::get('client_logged_in') == true) {
-                return true;
-            } else {
-                return false;
-            }
+		if (Session::has('client_id')) {
+            return true;
         } else {
             return false;
         }

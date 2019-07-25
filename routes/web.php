@@ -27,12 +27,33 @@ Route::get('/clients/logout', 'ClientsController@logout');
 Route::get('/clients/password/initial/{client_id}', 'ClientsController@set_password');
 Route::post('/clients/password/set', 'ClientsController@create_password');
 Route::get('/clients/dashboard', 'ClientsController@dashboard');
+
+// Tasks functions
 Route::get('/clients/tasks', 'TasksController@view_all');
 Route::get('/clients/tasks/request', 'TasksController@request');
 Route::post('/clients/tasks/request/create', 'TasksController@create_request');
+Route::get('/admin/tasks', 'AdminController@view_tasks');
+Route::get('/admin/tasks/new', 'AdminController@new_task');
+Route::post('/admin/tasks/create', 'TasksController@create');
+Route::get('/admin/tasks/edit/{task_id}', 'AdminController@edit_task');
+Route::post('/admin/tasks/update', 'TasksController@update');
+
+// Log functions
 Route::get('/clients/logs', 'LogsController@view_all');
+Route::get('/admin/logs', 'AdminController@view_logs');
+Route::get('/admin/logs/new', 'AdminController@new_log');
+Route::post('/admin/logs/create', 'LogsController@create');
+
+// Revenue functions
 Route::get('/clients/revenue', 'RevenuesController@view_all');
+Route::get('/admin/revenue', 'AdminController@view_revenue');
+Route::get('/admin/revenue/new', 'AdminController@new_revenue');
+
+// Product functions
 Route::get('/clients/products', 'ClientsController@view_software_products');
+
+// Order functions
+Route::get('/clients/orders', 'InvoicesController@client_view');
 
 // Admin dashboard
 Route::get('/admin/register/{p}', 'AdminController@create_admin');
@@ -41,19 +62,14 @@ Route::get('/admin', 'AdminController@login_screen');
 Route::get('/admin/login', 'AdminController@login_screen');
 Route::post('/admin/login/attempt', 'AdminController@login');
 Route::get('/admin/dashboard', 'AdminController@dashboard');
+Route::get('/admin/logout', 'AdminController@logout');
+
+// Client functions
 Route::get('/admin/clients', 'AdminController@view_clients');
 Route::get('/admin/clients/new', 'AdminController@new_client');
 Route::post('/admin/clients/create', 'AdminController@create_client');
 Route::get('/admin/clients/edit/{client_id}', 'AdminController@edit_client');
 Route::post('/admin/clients/update', 'AdminController@update_client');
-Route::get('/admin/logs', 'AdminController@view_logs');
-Route::get('/admin/logs/new', 'AdminController@new_log');
-Route::post('/admin/logs/create', 'LogsController@create');
-Route::get('/admin/revenue', 'AdminController@view_revenue');
-Route::get('/admin/revenue/new', 'AdminController@new_revenue');
-Route::get('/admin/logout', 'AdminController@logout');
-Route::get('/admin/tasks', 'AdminController@view_tasks');
-Route::get('/admin/tasks/new', 'AdminController@new_task');
-Route::post('/admin/tasks/create', 'TasksController@create');
-Route::get('/admin/tasks/edit/{task_id}', 'AdminController@edit_task');
-Route::post('/admin/tasks/update', 'TasksController@update');
+
+// LMBK Functions
+Route::get('/clients/tools/lead-builder', 'LeadMagnetBuilderKitController@index');
