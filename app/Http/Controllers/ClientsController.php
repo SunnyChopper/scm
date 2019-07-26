@@ -57,6 +57,7 @@ class ClientsController extends Controller
         Session::forget('client_id');
         Session::forget('client_logged_in');
         Session::save();
+
         return redirect(url('/'));
     }
 
@@ -79,7 +80,7 @@ class ClientsController extends Controller
         $client->first_name = $data->first_name;
         $client->last_name = $data->last_name;
         $client->email = $data->email;
-        $client->password = $data->password;
+        $client->password = Hash::make($data->password);
         $client->company_name = $data->company_name;
         $client->save();
     }
@@ -136,10 +137,25 @@ class ClientsController extends Controller
         return redirect(url('/clients/login'));
     }
 
+    public function create(Request $data) {
+        $client = new Client;
+        $client->first_name = $data->first_name;
+        $client->last_name = $data->last_name;
+        $client->email = $data->email;
+        $client->password = Hash::make($data->password);
+        $client->company_name = $data->company_name;
+        $client->save();
+
+        // Save session
+        $data->session()->put('client_id', $client->id);
+
+        return response()->json($client->id, 200);
+    }
+
     /* Private functions */
     private function is_client_logged_in() {
-        if (Session::has('client_logged_in')) {
-            if (Session::get('client_logged_in') == true) {
+        if (Session::has('client_id')) {
+            if (Session::get('client_id') != null) {
                 return true;
             } else {
                 return false;

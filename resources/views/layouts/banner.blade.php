@@ -4,8 +4,10 @@
 			<div class="col-12">
 				@if(isset($page_header))
 					<h2 class="white">{{ $page_header }}</h2>
-				@else
+				@elseif(isset($seo_array["title"]))
 					<h2 class="white">{{ $seo_array["title"] }}</h2>
+				@else
+					<h2 class="white">{{ $page_title }}</h2>
 				@endif
 			</div>
 		</div>

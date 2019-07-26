@@ -50,6 +50,7 @@ Route::get('/admin/revenue', 'AdminController@view_revenue');
 Route::get('/admin/revenue/new', 'AdminController@new_revenue');
 
 // Product functions
+Route::get('/admin/products', 'ProductsController@index');
 Route::get('/clients/products', 'ClientsController@view_software_products');
 
 // Order functions

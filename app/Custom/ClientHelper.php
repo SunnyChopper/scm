@@ -33,6 +33,18 @@ class ClientHelper {
 		return $client->email;
 	}
 
+	public static function guest() {
+		if (Session::has('client_id')) {
+			if (Session::get('client_id') != null) {
+				return false;
+			} else {
+				return true;
+			}
+        } else {
+            return true;
+        }
+	}
+
 	public static function isLoggedIn() {
 		if (Session::has('client_id')) {
             return true;

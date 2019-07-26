@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+	@include('layouts.banner')
+
 	<div class="container pt-64 pb-64">
 		<div class="row">
 			<div class="col-lg-6 col-md-6 col-sm-12 col-12">
@@ -17,7 +19,7 @@
 									</div>
 
 									<div class="col-lg-4 col-md-4 col-sm-12 col-12">
-										<a href="/admin/clients/edit/{{ $client->id }}" class="genric-btn primary rounded right-button mobile-left-button">Edit</a>
+										<a href="/admin/clients/edit/{{ $client->id }}" class="btn btn-primary rounded full-width" style="margin-top: 0.5em;">Edit</a>
 									</div>
 								</div>
 							</li>
@@ -59,7 +61,7 @@
 							</div>
 
 							<div class="form-group">
-								<input type="submit" class="centered primary_btn pl-4 pr-4" value="Create Log Event">
+								<input type="submit" class="centered btn btn-primary pl-4 pr-4" value="Create Log Event">
 							</div>
 						</form>
 					@else

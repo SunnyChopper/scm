@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+// Client functions
 Route::get('/clients/email/check', function() {
 	$email = $_GET['email'];
 	if (Client::where('email', strtolower($email))->where('is_active', '!=', 0)->count() > 0){
@@ -27,3 +28,18 @@ Route::get('/clients/email/check', function() {
 		return response()->json(true, 200);
 	}
 });
+Route::post('/clients/create', 'ClientsController@create');
+
+// Product functions
+Route::get('/products', 'ProductsController@get');
+Route::post('/products/create', 'ProductsController@create');
+Route::post('/products/delete', 'ProductsController@delete');
+
+// Lead magnet functions
+Route::get('/lead-ideas', 'LeadMagnetBuilderKitController@get');
+Route::post('/baa/create', 'LeadMagnetBuilderKitController@create_baa');
+Route::post('/baa/update', 'LeadMagnetBuilderKitController@update_baa');
+Route::post('/lead-idea/create', 'LeadMagnetBuilderKitController@create_idea');
+Route::get('/lead-idea/read', 'LeadMagnetBuilderKitController@read_idea');
+Route::post('/lead-idea/update', 'LeadMagnetBuilderKitController@update_idea');
+Route::post('/lead-idea/delete', 'LeadMagnetBuilderKitController@delete_idea');

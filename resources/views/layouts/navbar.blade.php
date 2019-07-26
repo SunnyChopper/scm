@@ -9,7 +9,7 @@
 			<label for="drop" class="toggle"><span class="fa fa-bars" aria-hidden="true"></span></label>
 			<input type="checkbox" id="drop" />
 
-			@if(Auth::guest() && App\Custom\ClientHelper::isLoggedIn() == false)			
+			@if(Auth::guest() && App\Custom\ClientHelper::isLoggedIn() == false && App\Custom\AdminHelper::isLoggedIn() == false)			
 			<ul class="menu mt-2 ml-auto">
 				<li><a href="{{ url('/') }}">Home</a></li>
 				{{-- <li class=""><a href="{{ url('/') }}">Tips & Advice</a></li> --}}
@@ -31,7 +31,7 @@
 			<div class="login-icon ml-lg-2">
 				<a class="user" href="{{ url('/clients/login') }}">Login</a>
 			</div>
-			@elseif(App\Custom\ClientHelper::isLoggedIn() == true)
+			@elseif(App\Custom\ClientHelper::isLoggedIn() == true && App\Custom\AdminHelper::isLoggedIn() == false)
 			<ul class="menu mt-2 ml-auto">
 				<li><a href="{{ url('/clients/dashboard') }}">Dashboard</a></li>
 				<li><a href="{{ url('/clients/premium') }}">Premium Content</a></li>
@@ -68,10 +68,11 @@
 			<div class="login-icon ml-lg-2">
 				<a class="user" href="{{ url('/clients/logout') }}">Logout</a>
 			</div>
-			@elseif(App\Custom\AdminHelper::isLoggedIn())
+			@elseif(App\Custom\AdminHelper::isLoggedIn() == true)
 			<ul class="menu mt-2 ml-auto">
 				<li><a href="{{ url('/admin/dashboard') }}">Dashboard</a></li>
 				<li><a href="{{ url('/admin/clients') }}">Clients</a></li>
+				<li><a href="{{ url('/admin/products') }}">Products</a></li>
 				<li><a href="{{ url('/admin/logs') }}">Logs</a></li>
 				<li><a href="{{ url('/admin/revenue') }}">Revenue</a></li>
 				<li><a href="{{ url('/admin/tasks') }}">Tasks</a></li>

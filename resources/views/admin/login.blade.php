@@ -1,6 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
+	@include('layouts.banner')
+
 	<div class="container pt-64 pb-64">
 		<div class="row justify-content-center">
 			<div class="col-lg-6 col-md-8 col-sm-10 col-12">
@@ -24,7 +26,7 @@
 						@endif
 
 						<div class="form-group">
-							<input type="submit" class="primary_btn pl-4 pr-4 mb-0 centered">
+							<input type="submit" class="btn btn-primary pl-4 pr-4 mb-0 centered">
 						</div>
 					</form>
 				</div>

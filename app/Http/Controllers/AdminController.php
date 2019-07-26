@@ -35,6 +35,9 @@ class AdminController extends Controller
 
     public function login(Request $data) {
     	if (AdminHelper::login($data) == true) {
+            Session::put('admin_logged_in', true);
+            Session::put('admin_id', $id);
+            Session::save();
     		return redirect(url('/admin/dashboard'));
     	} else {
     		return redirect()->back()->with('error', 'Username or password is incorrect.');
@@ -72,9 +75,15 @@ class AdminController extends Controller
         $revenue = RevenueHelper::getRevenueForCurrentMonth();
         $revenue_total = RevenueHelper::getTotalForCurrentMonth();
 
-    	$page_title = "Admin Dashboard";
+    	// Page SEO
+        $page_title = "Admin Dashboard";
+        $seo_array = array(
+            "title" => $page_title,
+            "og:title" => $page_title,
+            "og:url" => "https://www.sunnychoppermedia.com/admin/dashboard"
+        );
 
-    	return view('admin.dashboard')->with('page_title', $page_title)->with('clients', $clients)->with('revenue', $revenue)->with('revenue_total', $revenue_total);
+    	return view('admin.dashboard')->with('seo_array', $seo_array)->with('clients', $clients)->with('revenue', $revenue)->with('revenue_total', $revenue_total);
     }
 
     public function view_clients() {

@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Auth;
-
 use App\BeforeAndAfter;
 use App\LeadMagnet;
+
+use App\Custom\ClientHelper;
 
 use Illuminate\Http\Request;
 
@@ -24,7 +24,7 @@ class LeadMagnetBuilderKitController extends Controller
 	 */
 	public function index() {
 		// Check to see if public access
-		if (Auth::guest() == true) {
+		if (ClientHelper::guest() == true) {
 			$is_public = true;
 		} else {
 			$is_public = false;
@@ -33,10 +33,10 @@ class LeadMagnetBuilderKitController extends Controller
 		// Get assets if we can
 		if ($is_public == false) {
 			// Get before and after
-			$before_and_after = BeforeAndAfter::where('user_id', Auth::id())->where('is_active', 1)->get();
+			$before_and_after = BeforeAndAfter::where('user_id', ClientHelper::getID())->where('is_active', 1)->get();
 
 			// Get lead magnets
-			$lead_magnets = LeadMagnet::where('user_id', Auth::id())->where('is_active', 1)->get();
+			$lead_magnets = LeadMagnet::where('user_id', ClientHelper::getID())->where('is_active', 1)->get();
 		}
 
 		// Page SEO
@@ -65,10 +65,78 @@ class LeadMagnetBuilderKitController extends Controller
 		Get functions
 	\* -------------------------- */
 
-	public function get() {}
+	public function get() {
+		return response()->json(LeadMagnet::where('user_id', $_GET['user_id'])->active()->get()->toArray(), 200);
+	}
     
 	/* -------------------------- *\
 		CRUD Functions
 	\* -------------------------- */
+
+	public function create_baa(Request $data) {
+		$baa = new BeforeAndAfter;
+		$baa->user_id = $data->user_id;
+		$baa->before_have = $data->before_have;
+		$baa->after_have = $data->after_have;
+		$baa->before_feel = $data->before_feel;
+		$baa->after_feel = $data->after_feel;
+		$baa->before_day = $data->before_average_day;
+		$baa->after_day = $data->after_average_day;
+		$baa->before_status = $data->before_status;
+		$baa->after_status = $data->after_status;
+		$baa->save();
+
+		return response()->json(true, 200);
+	}
+
+	public function update_baa(Request $data) {
+		$baa = BeforeAndAfter::find($data->baa_id);
+		$baa->before_have = $data->before_have;
+		$baa->after_have = $data->after_have;
+		$baa->before_feel = $data->before_feel;
+		$baa->after_feel = $data->after_feel;
+		$baa->before_day = $data->before_average_day;
+		$baa->after_day = $data->after_average_day;
+		$baa->before_status = $data->before_status;
+		$baa->after_status = $data->after_status;
+		$baa->save();
+
+		return response()->json(true, 200);
+	}
+
+	public function create_idea(Request $data) {
+		$idea = new LeadMagnet;
+		$idea->user_id = $data->user_id;
+		$idea->title = $data->title;
+		$idea->promise = $data->promise;
+		$idea->hook = $data->hook;
+		$idea->category = $data->category;
+		$idea->save();
+
+		return response()->json(true, 200);
+	}
+
+	public function read_idea() {
+		return response()->json(LeadMagnet::find($_GET["lead_id"])->toArray(), 200);
+	}
+
+	public function update_idea(Request $data) {
+		$idea = LeadMagnet::find($data->lead_id);
+		$idea->title = $data->title;
+		$idea->promise = $data->promise;
+		$idea->hook = $data->hook;
+		$idea->category = $data->category;
+		$idea->save();
+
+		return response()->json(true, 200);
+	}
+
+	public function delete_idea(Request $data) {
+		$idea = LeadMagnet::find($data->lead_id);
+		$idea->is_active = 0;
+		$idea->save();
+
+		return response()->json(true, 200);
+	}
 
 }
