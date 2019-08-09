@@ -43,3 +43,17 @@ Route::post('/lead-idea/create', 'LeadMagnetBuilderKitController@create_idea');
 Route::get('/lead-idea/read', 'LeadMagnetBuilderKitController@read_idea');
 Route::post('/lead-idea/update', 'LeadMagnetBuilderKitController@update_idea');
 Route::post('/lead-idea/delete', 'LeadMagnetBuilderKitController@delete_idea');
+
+// Premium content functions
+Route::get('/premium', 'PremiumContentsController@get');
+Route::post('/premium/create', 'PremiumContentsController@create');
+Route::get('/premium/read', 'PremiumContentsController@read');
+Route::post('/premium/update', 'PremiumContentsController@update');
+Route::post('/premium/delete', 'PremiumContentsController@delete');
+
+// Order functions
+Route::post('/orders/create', 'InvoicesController@create');
+Route::get('/orders/get', 'InvoicesController@get');
+
+// Revenue functions
+Route::get('/revenue', 'RevenuesController@get_revenue');

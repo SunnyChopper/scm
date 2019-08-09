@@ -7,6 +7,16 @@ use App\Revenue;
 
 class RevenueHelper {
 
+	public static function createRevenueForClient() {
+		$revenue = new Revenue;
+    	$revenue->client_id = $data->client_id;
+    	$revenue->report_date = $data->report_date;
+    	$revenue->amount = $data->amount;
+    	$revenue->save();
+
+    	return response()->json(true, 200);
+	}
+
 	public static function getRevenueForCurrentMonth() {
 		$currentMonth = date('m');
 		$revenue = Revenue::whereRaw('MONTH(created_at) = ?', [$currentMonth])->get();

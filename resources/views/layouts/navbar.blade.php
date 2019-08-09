@@ -17,11 +17,21 @@
 
 				<li>
 					<!-- First Tier Drop Down -->
-					<label for="drop-2" class="toggle">Dropdown <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
-					<a href="{{ url('/services') }}">Services <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+					<label for="drop-2" class="toggle">Services <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+					<a style="color: white;">Services <span class="fa fa-angle-down" aria-hidden="true"></span></a>
 					<input type="checkbox" id="drop-2"/>
 					<ul class="inner-ul">
-						<li><a href="{{ url('/services/web-dev') }}">Web Development</a></li>
+						<li><a href="{{ url('/services/web-apps') }}">Web Apps</a></li>
+					</ul>
+				</li>
+
+				<li>
+					<!-- First Tier Drop Down -->
+					<label for="drop-3" class="toggle">Tools <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+					<a style="color: white;">Tools <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+					<input type="checkbox" id="drop-3"/>
+					<ul class="inner-ul">
+						<li><a href="{{ url('/clients/tools/lead-builder') }}">Lead Magnet Builder Kit</a></li>
 					</ul>
 				</li>
 
@@ -71,11 +81,35 @@
 			@elseif(App\Custom\AdminHelper::isLoggedIn() == true)
 			<ul class="menu mt-2 ml-auto">
 				<li><a href="{{ url('/admin/dashboard') }}">Dashboard</a></li>
-				<li><a href="{{ url('/admin/clients') }}">Clients</a></li>
-				<li><a href="{{ url('/admin/products') }}">Products</a></li>
-				<li><a href="{{ url('/admin/logs') }}">Logs</a></li>
-				<li><a href="{{ url('/admin/revenue') }}">Revenue</a></li>
-				<li><a href="{{ url('/admin/tasks') }}">Tasks</a></li>
+				<li>
+					<label for="drop-4" class="toggle">Clients <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+					<a href="{{ url('/admin/clients') }}">Clients <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+					<input type="checkbox" id="drop-4"/>
+					<ul class="inner-ul">
+						<li><a href="{{ url('/admin/logs') }}">Logs</a></li>
+						<li><a href="{{ url('/admin/tasks') }}">Tasks</a></li>
+					</ul>
+				</li>
+
+				<li>
+					<label for="drop-5" class="toggle">Products <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+					<a href="{{ url('/admin/products') }}">Products <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+					<input type="checkbox" id="drop-5"/>
+					<ul class="inner-ul">
+						<li><a href="{{ url('/admin/revenue') }}">Revenue</a></li>
+						<li><a href="{{ url('/admin/orders') }}">Orders</a></li>
+					</ul>
+				</li>
+
+				<li>
+					<label for="drop-5" class="toggle">Tools <span class="fa fa-angle-down" aria-hidden="true"></span> </label>
+					<a style="color: white;">Tools <span class="fa fa-angle-down" aria-hidden="true"></span></a>
+					<input type="checkbox" id="drop-5"/>
+					<ul class="inner-ul">
+						<li><a href="{{ url('/admin/premium-content') }}">Premium Content</a></li>
+					</ul>
+				</li>
+				
 			</ul>
 			<div class="login-icon ml-lg-2">
 				<a class="user" href="{{ url('/admin/logout') }}">Logout</a>

@@ -4,22 +4,18 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Invoice extends Model
+class ProjectTask extends Model
 {
 
-	protected $table = "invoices";
+	protected $table = "project_tasks";
     public $primaryKey = "id";
 
-    public function client() {
-        return $this->belongsTo('App\Client', 'client_id', 'id');
+    public function project() {
+    	return $this->hasOne('App\Project', 'id', 'project_id');
     }
 
     public function scopeActive($query) {
     	return $query->where('status', 1);
-    }
-
-    public function scopeDeleted($query) {
-    	return $query->where('status', 0);
     }
 
     public function scopeComplete($query) {

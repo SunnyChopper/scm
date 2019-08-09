@@ -4,6 +4,166 @@ Author URL: http://w3layouts.com
 License: Creative Commons Attribution 3.0 Unported
 License URL: http://creativecommons.org/licenses/by/3.0/
 --*/
+
+.gray-box {
+    padding: 24px;
+    background: #F4F4F4;
+    border-radius: 8px;
+    border-bottom: 2px solid #D0D0D0;
+}
+
+.project-box {
+    background: white;
+    padding: 24px;
+    border-radius: 8px;
+    border-bottom: 3px solid #3D9BE9;
+}
+
+.blue-box {
+    background: #3D9BE9;
+    padding: 24px;
+    color: white;
+    text-align: center;
+    border-radius: 8px;
+}
+
+.mont {
+    font-family: "Montserrat";
+}
+
+.team-box {
+    margin-top: 0px;
+    margin-bottom: 16px;
+    background-color: hsl(0, 0%, 100%);
+    -webkit-box-shadow: 0px 4px 6px -2px rgba(0,0,0,0.25); 
+    box-shadow: 0px 4px 6px -2px rgba(0,0,0,0.25);
+    transition: 0.25s all;
+    -webkit-transition: 0.25s all;
+}
+
+.team-box > .label {
+    background: rgba(43, 104, 156, 1); 
+    width: max-content; 
+    padding: 2px 24px; 
+    display: block; 
+    margin-top: -1em; 
+    position: relative; 
+    margin-left: auto; 
+    margin-right: auto;
+}
+
+.team-box > .image {
+    height: 300px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.team-box > .info {
+    background-color: hsl(0, 0%, 99.5%);
+    padding: 24px;
+    text-align: center;
+}
+
+.service-box-small {
+    margin-top: 0px;
+    margin-bottom: 16px;
+    background-color: hsl(0, 0%, 100%);
+    -webkit-box-shadow: 0px 4px 6px -2px rgba(0,0,0,0.25); 
+    box-shadow: 0px 4px 6px -2px rgba(0,0,0,0.25);
+    transition: 0.25s all;
+    -webkit-transition: 0.25s all;
+}
+
+.service-box-small > .product {
+    background: white;
+    margin-top: -28px;
+    width: max-content; 
+    max-width: 80%;
+    padding: 12px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-shadow: 0px 4px 6px -2px rgba(0,0,0,0.25); 
+    box-shadow: 0px 4px 6px -2px rgba(0,0,0,0.25);
+    margin-bottom: 4px;
+}
+
+.service-box-small > .image {
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.service-box-small > .info {
+    background-color: hsl(0, 0%, 99.5%);
+    padding: 36px;
+    text-align: center;
+}
+
+.service-box {
+    margin-top: 0px;
+    margin-bottom: 16px;
+    background-color: hsl(0, 0%, 100%);
+    -webkit-box-shadow: 0px 4px 6px -2px rgba(0,0,0,0.25); 
+    box-shadow: 0px 4px 6px -2px rgba(0,0,0,0.25);
+    transition: 0.25s all;
+    -webkit-transition: 0.25s all;
+}
+
+.service-box > .product {
+    background: white;
+    margin-top: -60px;
+    width: max-content; 
+    max-width: 80%;
+    padding: 24px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-box-shadow: 0px 4px 6px -2px rgba(0,0,0,0.25); 
+    box-shadow: 0px 4px 6px -2px rgba(0,0,0,0.25);
+    margin-bottom: 4px;
+}
+
+.service-box > .image {
+    height: 400px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.service-box > .info {
+    background-color: hsl(0, 0%, 99.5%);
+    padding: 36px;
+    text-align: center;
+}
+
+.image-box-edge {
+    margin-top: 0px;
+    margin-bottom: 16px;
+    background-color: hsl(0, 0%, 97.5%);
+    -webkit-box-shadow: 0px 4px 6px -2px rgba(0,0,0,0.25); 
+    box-shadow: 0px 4px 6px -2px rgba(0,0,0,0.25);
+    transition: 0.25s all;
+    -webkit-transition: 0.25s all;
+}
+
+
+.image-box-edge > .image-box-image {
+    height: 150px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.image-box-edge > .image-box-info {
+    background-color: hsl(0, 0%, 97.5%);
+    padding: 36px;
+    text-align: center;
+}
+
+
 html,
 body {
     margin: 0;
@@ -56,6 +216,10 @@ h6 {
 }
 li {
     list-style-type: none;
+    margin-bottom: 0.5rem;
+    font-size: 1em;
+    line-height: 1.75em;
+    letter-spacing: 1px;
 }
 p {
     margin: 0;

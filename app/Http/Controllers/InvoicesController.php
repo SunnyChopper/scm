@@ -14,16 +14,36 @@ class InvoicesController extends Controller
 {
 
 	/* ---------------------------- *\
+		Admin views
+	\* ---------------------------- */
+
+	public function admin_dashboard() {
+		$page_title = "Orders";
+
+		$orders = Invoice::complete()->orderBy('created_at', 'DESC')->get();
+
+		return view('admin.orders.view')->with('page_title', $page_title)->with('orders', $orders);
+	}
+
+	/* ---------------------------- *\
 		Client views
 	\* ---------------------------- */
 
-	public function client_view() {
+	public function client_dashboard() {
 		$page_title = "Your Orders";
 
 		$client = Client::find(ClientHelper::getID());
 		$invoices = Invoice::where('client_id', ClientHelper::getID())->where('status', '!=', 0)->get();
 
 		return view('clients.orders.view')->with('page_title', $page_title)->with('client', $client)->with('invoices', $invoices);
+	}
+
+	/* ---------------------------- *\
+		Get Functions
+	\* ---------------------------- */
+
+	public function get() {
+		return response()->json(Invoice::where('client_id', $_GET['client_id'])->where('status', 1)->get()->toArray(), 200);
 	}
 
 	/* ---------------------------- *\
@@ -60,6 +80,10 @@ class InvoicesController extends Controller
 
 		if (isset($data->customer_id)) {
 			$invoice->customer_id = $data->customer_id;
+		}
+
+		if (isset($data->charge_id)) {
+			$invoice->charge_id = $data->charge_id;
 		}
 
 		if (isset($data->status)) {

@@ -4,10 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Revenue extends Model
+class PremiumContent extends Model
 {
-
-    protected $table = "revenues";
+    
+	protected $table = "premium_contents";
     public $primaryKey = "id";
 
     public function scopeActive($query) {

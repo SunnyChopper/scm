@@ -39,9 +39,8 @@
 			@else
 				<div class="col-lg-7 col-md-8 col-sm-10 col-12">
 					<div class="gray-box">
-						<h3 class="text-center">No Revenue</h3>
-						<p class="text-center">There are no revenue objects created. Click below to get started.</p>
-						<a href="/admin/revenue/new" class="primary_btn centered pr-4 pl-4">Create Revenue</a>
+						<h3 class="text-center mb-2">No Revenue</h3>
+						<p class="text-center mb-0">Get out there and sell.</p>
 					</div>
 				</div>
 			@endif

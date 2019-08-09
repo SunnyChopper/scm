@@ -26,10 +26,10 @@ class PagesController extends Controller
     	return view('pages.pricing')->with('page_title', $page_title)->with('page_header', $page_header);
     }
 
-    public function web_dev_service() {
-    	$page_title = "Web Development Services";
+    public function web_apps() {
+    	$page_title = "Web App Services";
         $page_header = $page_title;
 
-    	return view('services.web-dev')->with('page_title', $page_title)->with('page_header', $page_header);
+    	return view('services.web-apps')->with('page_title', $page_title)->with('page_header', $page_header);
     }
 }

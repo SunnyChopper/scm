@@ -4,9 +4,22 @@
 	@include('layouts.banner')
 
 	<div class="container pt-64 pb-64">
-		<div class="row justify-content-center">
-			<div class="col-lg-6 col-md-7 col-sm-8 col-12">
-				<form action="/clients/register" method="POST">
+		<div class="row justify-content-center" style="display: flex;">
+			<div class="col-lg-6 col-md-6 col-sm-12 col-12" style="margin: auto;">
+				<h3 class="mb-3">What You're Unlocking Today By Joining</h3>
+				<p class="mb-2">Getting high quality leads for your sales or marketing team is tough. Social platforms are getting expensive. The internet is becoming more complex by the day. Seems like the good old days of getting cheap leads from paid advertising are over.</p>
+				<p class="mb-2">However, there was once a time when direct mail used to work effectively until social media came along. The good old days are only over when you stop innovating.</p>
+				<p class="mb-2">By joining for free today, you will receive the following:</p>
+				<ul>
+					<li><b>Access to Toolbox</b> - Start taking actions that drive results by accessing our Toolbox. Inside it, you'll find lists of tools many businesses, including us, use to drive results. You will also get access to the free tools we make.</li>
+					<li><b>Access to Playbooks</b> - Sometimes we all get stuck on which lead magnet to use or which funnel structure to use. Blast through these road bumps using our Playbooks. Within a Playbook, you'll find the pros and cons for many aspects of marketing.</li>
+					<li><b>Access to Templates</b> - Imagine if you have over 25 funnel templates in your arsenal. Imagine if you have 50 different Instagram templates ready. You would become efficient. That's what you get with our Templates.</li>
+					<li><b>Access to Vault</b> - You're always on the move and staying up-to-date on the latest marketing trends can get out of hand. Not to worry. In our Vault, you'll get the latest trends in bite-sized pieces with actionable steps.</li>
+				</ul>
+			</div>
+
+			<div class="col-lg-6 col-md-7 col-sm-8 col-12" style="margin: auto;">
+				<form action="/clients/register" class="mt-32-mobile" method="POST">
 					{{ csrf_field() }}
 					<div class="gray-box">
 						<div class="row">

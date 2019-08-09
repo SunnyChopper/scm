@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Session;
 
 use App\Custom\AdminHelper;
 use App\Custom\RevenueHelper;
@@ -36,7 +37,7 @@ class AdminController extends Controller
     public function login(Request $data) {
     	if (AdminHelper::login($data) == true) {
             Session::put('admin_logged_in', true);
-            Session::put('admin_id', $id);
+            Session::put('admin_id', $data->id);
             Session::save();
     		return redirect(url('/admin/dashboard'));
     	} else {

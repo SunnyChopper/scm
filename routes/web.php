@@ -15,7 +15,7 @@
 Route::get('/', 'PagesController@index');
 Route::get('/contact', 'PagesController@contact');
 Route::get('/pricing', 'PagesController@pricing');
-Route::get('/services/web-dev', 'PagesController@web_dev_service');
+Route::get('/services/web-apps', 'PagesController@web_apps');
 Route::get('/test', 'AdminController@test');
 
 // Client dashboard
@@ -38,6 +38,10 @@ Route::post('/admin/tasks/create', 'TasksController@create');
 Route::get('/admin/tasks/edit/{task_id}', 'AdminController@edit_task');
 Route::post('/admin/tasks/update', 'TasksController@update');
 
+// Premium content functions
+Route::get('/admin/premium-content', 'PremiumContentsController@admin_view');
+Route::get('/clients/premium', 'PremiumContentsController@client_view');
+
 // Log functions
 Route::get('/clients/logs', 'LogsController@view_all');
 Route::get('/admin/logs', 'AdminController@view_logs');
@@ -54,7 +58,8 @@ Route::get('/admin/products', 'ProductsController@index');
 Route::get('/clients/products', 'ClientsController@view_software_products');
 
 // Order functions
-Route::get('/clients/orders', 'InvoicesController@client_view');
+Route::get('/admin/orders', 'InvoicesController@admin_dashboard');
+Route::get('/clients/orders', 'InvoicesController@client_dashboard');
 
 // Admin dashboard
 Route::get('/admin/register/{p}', 'AdminController@create_admin');
